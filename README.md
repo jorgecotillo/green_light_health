@@ -5,5 +5,5 @@
 - Brendan Murphy (Scrum Master)
 - Jorge Cotillo (Dev)
 - Nicholas Owen Weber
-- Nakek Asadorian
+- Narek Asadorian
 - Sam Negassi
