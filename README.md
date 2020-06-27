@@ -2,7 +2,7 @@
 
 # Team members:
 
-- Brendan Murphy
+- Brendan Murphy (Scrum Master)
 - Jorge Cotillo (Dev)
 - Nicholas Owen Weber
 - Nakek Asadorian
