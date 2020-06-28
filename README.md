@@ -10,7 +10,7 @@
 
 # Slack channel:
 
-Join the slack channel to discuss about project planning and management.
+Join the slack channel to talk about project planning and project management.
 
 https://agilesoftwarecourse.slack.com/archives/G01632UPNAW
 
