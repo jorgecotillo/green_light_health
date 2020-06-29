@@ -11,6 +11,16 @@
 - Narek Asadorian (Dev)
 - Sam Negassi (Dev)
 
+# Slack channel:
+
+Join the slack channel to talk about project planning and project management.
+
+https://agilesoftwarecourse.slack.com/archives/G01632UPNAW
+
+# Github repository:
+
+All design ideas, development decisions and product vision (milestones, releases), will happen in github.
+
 # Near Vision of Product (iteration one):
 
 # Far Vision of Product:
