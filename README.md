@@ -63,22 +63,22 @@ Age 34
 Sarah is a Software Engineer at Amazon and she's been working from home since the pandemic hit the US. The primary school
 where her two kids go to is closed. She is getting exhausted because she is working full time while also being a mom and
 a teacher full time. She wants to be able to send her kids back to school and herself back to the office. But she knows
-that won't happen unless the virus is under control. She heard of Green Light Health web app that will help her community
+that won't happen unless the spread of the virus is under control. She heard of Green Light Health web app that will help her community
 track and respond to any local outbreaks and she wants to do her part by signing up to the app and accurately filling out
 the health declaration daily - whether she or her young children have any symptoms, or if they tested positive or
 negative. She also wants to easily check the latest risk level assessment of local establishments before patronizing
-them. However, she also wants to be sure her family's personal health data is protected.
+them. In addition, she wants to be sure her family's personal and health data is secure.
 
 Jason S  
 Bellevue WA  
 Age 20  
 Jason is a student at Bellevue College. Since the pandemic hit the US, his social life has shrunk and as a very
 extroverted person, he's been having a hard time with the isolation. Now that some public spaces and businesses are
-starting to open, he has been wanting to go out to eat and shot. However, most businesses are using the Green
+starting to open, he has been wanting to go out to eat and shop. However, most businesses are using the Green
 Light Health web app and requiring customers to declare their symptoms before they can be allowed to enter. Out
-of frustration, Jason has signed up for the app out of frustration and he just wants to spend as less time as
-possible reading and filling out the health declaration. Because he doesn't want to be prevented entry, he just
-wants to fill the declaration as showing no symptoms whether he has symptoms or not.
+of frustration, Jason has signed up for the app and he just wants to spend as less time as
+possible reading and filling out the health declaration forms. Because he doesn't want to be prevented entry, he just
+wants to fill the declaration always as having no symptoms, whether that's true or not.
 
 # Product Backlog:
 Find the [Product Backlog](https://github.com/jorgecotillo/green_light_health/projects/1)
