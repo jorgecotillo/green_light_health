@@ -42,7 +42,7 @@ As a regular concert goer who enjoys all types of music, his favorite band the R
 at the 2020 Boston Calling music festival. Sadly, the event was postponed until further notice due to the global pandemic. As Red
 Hot Chili Peppers begin to plan their return to the Boston area next Summer, they will require attendees to download and install
 the Green Light Health app in order to confirm the health status of all concert guests. As the event approaches, Chris will
-need to download and install the app and complete his health declaration so that he can attend the event and see his beloved
+need to use the Green Light Health web app and complete his health declaration so that he can attend the event and see his beloved
 Red Hot Chili Peppers.
  
 James H
