@@ -56,7 +56,18 @@ all guests to download the app and show the green check to a club security guard
 James needs the ability to create a business account for his venue and determine the specific health requirements that he will enforce
 in order to allow his customers access to the club. James needs this app to be accurate as possible, he cannot risk having an outbreak
 occur at his club because he does not believe the club will financially survive another shut down.
-    
+
+John Doe
+Seattle, WA
+Age 30
+John is a seasoned Developer, he worked as a full stack engineer at a large social media company. He got a CS degree at Harvard and
+moved to Seattle two years ago. He comes from a family full of doctors, so is natural for him to have a passion for computers and health. John lived for one year in Quito, Ecuador helping people that live far away from the city, where health providers don't usually get to. He'll be leading the Development Team and with his natural passion for computers and health plus his exposure to health needs, makes him an excellent team member.
+
+Emily Hood
+Washington DC
+Age 45
+Emily works at the U.S. Department of Health and Human Services (HHS) as a Director of the Office of Disease Prevention and Health Promotion. Her vast knowledge is key to this product. Due to her role, her time is limited to just one hour per week at maximum. Emily has a Software Engineer certificate from Harvard Extension and truly believes that computers and well defined algorithms helps prevent spreading disease.
+Emily will be asked for feedback and guidance for items such as: Government Health Regulations, Product feedback and probably early adopters of the Product MVP.
 
 # Product Backlog:
 Find the [Product Backlog](https://github.com/jorgecotillo/green_light_health/projects/1)
