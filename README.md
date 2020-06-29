@@ -80,6 +80,18 @@ of frustration, Jason has signed up for the app and he just wants to spend as le
 possible reading and filling out the health declaration forms. Because he doesn't want to be prevented entry, he just
 wants to fill the declaration always as having no symptoms, whether that's true or not.
 
+John Doe
+Seattle, WA
+Age 30
+John is a seasoned Developer, he worked as a full stack engineer at a large social media company. He got a CS degree at Harvard and
+moved to Seattle two years ago. He comes from a family full of doctors, so is natural for him to have a passion for computers and health. John lived for one year in Quito, Ecuador helping people that live far away from the city, where health providers don't usually get to. He'll be leading the Development Team and with his natural passion for computers and health plus his exposure to health needs, makes him an excellent team member.
+
+Emily Hood
+Washington DC
+Age 45
+Emily works at the U.S. Department of Health and Human Services (HHS) as a Director of the Office of Disease Prevention and Health Promotion. Her vast knowledge is key to this product. Due to her role, her time is limited to just one hour per week at maximum. Emily has a Software Engineer certificate from Harvard Extension and truly believes that computers and well defined algorithms helps prevent spreading disease.
+Emily will be asked for feedback and guidance for items such as: Government Health Regulations, Product feedback and probably early adopters of the Product MVP.
+
 # Product Backlog:
 Find the [Product Backlog](https://github.com/jorgecotillo/green_light_health/projects/1)
 under github projects.
