@@ -12,6 +12,8 @@
 
 # Far Vision of Product:
 
+Green Light Health App helps businesses prevent spread of illness in their locations
+
 # Stakeholders:
 - Venue owner
 - Concert goer
