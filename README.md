@@ -57,6 +57,18 @@ James needs the ability to create a business account for his venue and determine
 in order to allow his customers access to the club. James needs this app to be accurate as possible, he cannot risk having an outbreak
 occur at his club because he does not believe the club will financially survive another shut down.
 
+Sarah A  
+Seattle WA  
+Age 34  
+Sarah is a Software Engineer at Amazon and she's been working from home since the pandemic hit the US. The primary school
+where her two kids go to is closed. She is getting exhausted because she is working full time while also being a mom and
+a teacher full time. She wants to be able to send her kids back to school and herself back to the office. But she knows
+that won't happen unless the virus is under control. She heard of Green Light Health web app that will help her community
+track and respond to any local outbreaks and she wants to do her part by signing up to the app and accurately filling out
+the health declaration daily - whether she or her young children have any symptoms, or if they tested positive or
+negative. She also wants to easily check the latest risk level assessment of local establishments before patronizing
+them. However, she also wants to be sure her family's personal health data is protected.
+
 
 # Product Backlog:
 Find the [Product Backlog](https://github.com/jorgecotillo/green_light_health/projects/1)
