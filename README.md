@@ -41,7 +41,7 @@ under github projects.
 
 # Definition of Ready:
 Our D.O.R. requires that the team be able to determine "what needs to be done" and the "amount of work" required to complete a given story.
-The below checklists should be complete to ensure a story is Ready.
+The below checklist should be complete to ensure a story is Ready.
 - [ ] Does the story capture and describe a reasonable and unit of work?
 - [ ] Has the amount of work been estimated using an approved measurement?
 - [ ] Is the story in line with the Product Vision?
