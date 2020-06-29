@@ -28,10 +28,16 @@ All design ideas, development decisions and product vision (milestones, releases
 Green Light Health App helps businesses prevent spread of illness in their locations
 
 # Stakeholders:
-- Venue owner
-- Concert goer
-- Gym user
-- Restaurant diner
+- Business Owner
+	- Venue owner
+	- Ophthalmologist Clinician / Clinic Owner
+- Employee
+- Consumer
+	- Concert Goer
+	- Restaurant Diner
+	- Gym User
+- Government Health Agency
+- Development Team
 
 # Detailed Personas:
 Chris J  
