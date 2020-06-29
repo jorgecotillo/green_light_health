@@ -63,3 +63,9 @@ Find the [Product Backlog](https://github.com/jorgecotillo/green_light_health/pr
 under github projects.
 
 # Definition of Ready:
+Our D.O.R. requires that the team be able to determine "what needs to be done" and the "amount of work" required to complete a given story.
+The below checklist should be complete to ensure a story is Ready.
+- [ ] The story captures and describes a reasonable unit of work
+- [ ] The amount of work to complete the story has been estimated using the approved measurement (T-shirt Size)
+- [ ] The story is in line with the Product Vision
+- [ ] All blockers and dependencies for the needed implementation are resolved
