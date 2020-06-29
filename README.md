@@ -23,6 +23,10 @@ All design ideas, development decisions and product vision (milestones, releases
 
 # Near Vision of Product (iteration one):
 
+Green Light Health App will serve businesses and consumers to prevent the spread of illnesses. It will provide a health declaration to end-user consumers which, upon completion, businesses can use to verify their risk level before allowing them into their locations. The app will use forms of consumer contact tracing to supplement the health declarations when they may be exposed to a pathogen before showing signs of illness. 
+
+The development team's infrastructure will include scripted environment creation, automated testing, continuous integration, and continous delivery for all components. This will expedite the delivery rate of product increments and increase the efficiency of the development team to help further this product's cause.
+
 # Far Vision of Product:
 
 Green Light Health App helps businesses prevent spread of illness in their locations
