@@ -25,7 +25,7 @@ All design ideas, development decisions and product vision (milestones, releases
 
 # Far Vision of Product:
 
-Green Light Health App helps businesses prevent spread of illness in their locations
+Green Light Health App helps businesses prevent the spread of illness in their locations. The app will use health declarations and contact tracing to keep consumers and businesses informed when they are potentially at risk for the spread of pathogens. Businesses will be able to provide required custom declarations to consumers before allowing them into their locations. Businesses will know if a potential consumer looking to enter is at risk due to showing symptoms of illness or having recently in contact with someone who is. Consumers will know the risk of visiting various business locations based on the tracing of other consumers through their area. Consumers will be notified if they have potentially been exposed to a pathogen so they can shelter in place to protect others. The system will benefit both businesses and consumers to create a safer world.
 
 # Stakeholders:
 - Venue owner
