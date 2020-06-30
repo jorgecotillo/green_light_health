@@ -23,15 +23,25 @@ All design ideas, development decisions and product vision (milestones, releases
 
 # Near Vision of Product (iteration one):
 
+Green Light Health App will serve businesses and consumers to prevent the spread of illnesses. It will provide a health declaration to end-user consumers which, upon completion, businesses can use to verify their risk level before allowing them into their locations. The app will use forms of consumer contact tracing to supplement the health declarations when they may be exposed to a pathogen before showing signs of illness. 
+
+The development team's infrastructure will include scripted environment creation, automated testing, continuous integration, and continous delivery for all components. This will expedite the delivery rate of product increments and increase the efficiency of the development team to help further this product's cause.
+
 # Far Vision of Product:
 
-Green Light Health App helps businesses prevent the spread of illness in their locations. The app will use health declarations and contact tracing to keep consumers and businesses informed when they are potentially at risk for the spread of pathogens. Businesses will be able to provide required custom declarations to consumers before allowing them into their locations. Businesses will know if a potential consumer looking to enter is at risk due to showing symptoms of illness or having recently in contact with someone who is. Consumers will know the risk of visiting various business locations based on the tracing of other consumers through their area. Consumers will be notified if they have potentially been exposed to a pathogen so they can shelter in place to protect others. The system will benefit both businesses and consumers to create a safer world.
+Green Light Health App helps businesses prevent the spread of illness in their locations. The app will use health declarations and contact tracing to keep consumers and businesses informed when they are potentially at risk for the spread of pathogens. Businesses will be able to provide required custom declarations to consumers before allowing them into their locations. Businesses will know if a potential consumer looking to enter is at risk due to showing symptoms of illness or having recently been in contact with someone who is. Consumers will know the risk of visiting various business locations based on the tracing of other consumers through their area. Consumers will be notified if they have potentially been exposed to a pathogen so they can shelter in place to protect others. The system will benefit both businesses and consumers to create a safer world.
 
 # Stakeholders:
-- Venue owner
-- Concert goer
-- Gym user
-- Restaurant diner
+- Business Owner
+	- Venue owner
+	- Ophthalmologist Clinician / Clinic Owner
+- Employee
+- Consumer
+	- Concert Goer
+	- Restaurant Diner
+	- Gym User
+- Government Health Agency
+- Development Team
 
 # Detailed Personas:
 Chris J  
