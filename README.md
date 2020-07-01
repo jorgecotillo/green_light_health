@@ -101,6 +101,8 @@ under github projects.
 
 The product backlog has been ordered by the value added to the user as well as by the user story dependencies (when applicable). The aim is to delivery the highest value user stories first. When a user story is dependent on another user story (often because the latter story would be too large on its own) the aim is to deliver them sequentially when they are the highest value stories on the product backlog.
 
+The initial estimation of the product backlog was conducted by the whole team on June 29, 2020 using an all-at-once affinity estimation technique.
+
 # Definition of Ready:
 Our D.O.R. requires that the team be able to determine "what needs to be done" and the "amount of work" required to complete a given story.
 The below checklist should be complete to ensure a story is Ready.
