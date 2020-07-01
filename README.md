@@ -115,8 +115,11 @@ The initial estimation of the product backlog was conducted by the whole team on
 
 # Definition of Ready:
 Our D.O.R. requires that the team be able to determine "what needs to be done" and the "amount of work" required to complete a given story.
-The below checklist should be complete to ensure a story is Ready.
-- [ ] The story captures and describes a reasonable unit of work
-- [ ] The amount of work to complete the story has been estimated using the approved measurement (T-shirt Size)
-- [ ] The story is in line with the Product Vision
+The below checklist should be complete to ensure a story is ready.
+- [ ] The user story has a title which the team can use to refer to the vertical slice.
+- [ ] The user story has an excellent opening sentence of the form "As a [role], I want [X] so that [Y]".
+- [ ] The user story details capture and describe a reasonable unit of work which the development can understand.
+- [ ] The user story has been estimated by the team in story points.
+- [ ] The user story description contains clear acceptance criteria
+- [ ] The user story is in line with the Product Vision
 - [ ] All blockers and dependencies for the needed implementation are resolved
