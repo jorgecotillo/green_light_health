@@ -34,15 +34,25 @@ Green Light Health App helps businesses prevent the spread of illness in their l
 # Stakeholders:
 - Business Owner
 	- Venue owner
-	- Ophthalmologist Clinician / Clinic Owner
+	- Ophthalmologist Clinician / Clinic Owner (Real Person: David Eilers, MD)
 - Employee
 - Consumer
+	- Sheltered-in-Place (Real Person: Denise Fung)
 	- Concert Goer
 	- Restaurant Diner
 	- Gym User
 - Government Health Agency
 
 # Detailed Personas:
+David Eilers, MD (Real Person)
+Saint Paul, MN
+Age 51
+Dr. Eilers specializes in Ophthalmology. He has over 23 years of experience in the medical field. He owns and manages a clinic and is an experienced business owner. He needs to keep treating patients for essential care during the pandemic, but also wants to ensure his employees and patients are safe. He would like an efficient way of checking in patients while keeping everyone involved as safe as possible.
+
+Denise Fung (Real Person)
+Age 28
+Denise Fung is a data analyst working in San Francisco, CA. She has been working from home since the pandemic started and her company is unlikely to return to the office until late this year. She wants to prevent the spread of illness and protect others, but needs to leave home for essentials. She wants an easy way to know if she has potentially been in contact with someone who is ill even if she is not showing symptoms herself so that she can stay home and protect others. She will avoid contact with others if there is a contact tracing mechanism in place to inform her that she is a potential carrier.
+
 Chris J  
 Boston, MA  
 Age 25  
