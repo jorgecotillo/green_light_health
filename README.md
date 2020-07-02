@@ -106,3 +106,24 @@ The below checklist should be complete to ensure a story is Ready.
 - [ ] The amount of work to complete the story has been estimated using the approved measurement (T-shirt Size)
 - [ ] The story is in line with the Product Vision
 - [ ] All blockers and dependencies for the needed implementation are resolved
+
+# Sprint 1 Forecasted Story Points:
+5
+
+# Rationale for this Forecast:
+The rationale for this forecast is based on the team's availability over the next 4 days and is largely an educated 
+guess due to the fact that our team has only recently come together, and the team does not have an example of 'yesterday's weather'.
+The first story we intend to complete will allow a user to read and accept a health declaration in an effort to attend
+a concert venue, gym, or restaurant. This initial prototype will be publicly available in some form.
+
+# Sprint 1 Backlog:
+(insert screenshot here)
+
+# Evidence of Daily Scrum from Sprint 1:
+(insert screenshot here)
+
+# Sprint 1 Burndown Chart:
+(insert screenshot here)
+
+# Evidence of Team Pairing/Mobbing from Sprint 1:
+(insert screenshot here)
