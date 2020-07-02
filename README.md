@@ -10,6 +10,7 @@
 - Nicholas Owen Weber (PO, Dev)
 - Narek Asadorian (Dev)
 - Sam Negassi (Dev)
+- Thomas Wasynczuk (Dev)
 
 # Slack channel:
 
