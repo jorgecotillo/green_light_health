@@ -124,23 +124,84 @@ The below checklist should be complete to ensure a story is ready.
 - [ ] The user story is in line with the Product Vision
 - [ ] All blockers and dependencies for the needed implementation are resolved
 
-# Sprint 1 Forecasted Story Points:
+---
+
+# Project Part 2: Sprint 1
+> You have a forecast of how many story points your team can complete during the sprint. The forecast is documented in your README.
+#### Forecasted Story Points:
 5
 
-# Rationale for this Forecast:
+> The rationale for your forecast is documented in your README.
+#### Rationale for this Forecast:
 The rationale for this forecast is based on the team's availability over the next 4 days and is largely an educated 
-guess due to the fact that our team has only recently come together, and the team does not have an example of 'yesterday's weather'.
-The first story we intend to complete will allow a user to read and accept a health declaration in an effort to attend
-a concert venue, gym, or restaurant. This initial prototype will be publicly available in some form.
+guess due to the fact that our team has only recently come together. The team does not yet have an example of 'yesterday's weather'.
+The first story we intend to complete will allow a user to read and accept a health declaration in order to enter
+a concert venue, gym, or restaurant. This initial prototype will be available in some form as a usable web UI.
 
-# Sprint 1 Backlog:
+> You pulled stories into your sprint backlog. You pulled stories from the top of your product backlog. The aggregate size of the stories does not exceed your forecast. Only Development Team members participated in this activity.
+#### Sprint 1 Backlog:
 (insert screenshot here)
 
-# Evidence of Daily Scrum from Sprint 1:
-(insert screenshot here)
+> All of the stories in your sprint backlog have size less than half your forecast velocity. If you noticed PBIs that are too large to get done in a sprint, you refined them by splitting them into smaller stories and estimating the smaller stories.
+#### TODO: Need more stories?
 
-# Sprint 1 Burndown Chart:
-(insert screenshot here)
+> You decomposed stories into tasks. The tasks are clearly listed in your sprint backlog.
+#### TODO: Link to sprint backlog
 
-# Evidence of Team Pairing/Mobbing from Sprint 1:
-(insert screenshot here)
+> Your sprint backlog, including both stories and tasks, is represented in a kanban board. The kanban board, or a URL of the kanban board, is documented in your README. Richard can view the kanban board.
+#### TODO: Link to sprint backlog
+
+> You have a sprint burndown chart. On the x-axis, you display time markers in units of 1 day. On the y-axis, you display story points remaining to get done. There is a linear curve descending from left to right; the leftmost point of the curve is number of story points in your sprint at sprint day 1; the rightmost point is 0 story points remaining on the last day of the sprint. The burndown chart, or the URL of the burndown chart, is document in your README. Richard can view the burndown chart.
+#### TODO (Brendan): Link to burndown
+
+> You have conducted multiple Daily Scrums. You have evidence of at least one daily scrum documented in your README. 
+#### TODO: Screenshot evidence of Daily Scrum from Sprint 1
+
+> What did you do in the last 24 hours that helped the Development Team meet the Sprint Goal? Annotate your team's response so it's clear which team members did which activities.
+
+> What will you do in the next 24 hours to help the Development Team meet the Sprint Goal? Annotate your team's response so it's clear which team members plan to do which activities. 
+
+> Do you see any impediment that prevents me or the Development Team from meeting the Sprint Goal? What are the impediments? What is your impediment removal plan? 
+#### TODO: Scrum Notes #1:
+- Brendan
+	- Last 24 Hours
+	- Next 24 Hours
+	- Impediments
+- Jorge
+	- Last 24 Hours
+	- Next 24 Hours
+	- Impediments
+- Michael
+	- Last 24 Hours
+	- Next 24 Hours
+	- Impediments
+- Narek
+	- Last 24 Hours
+	- Next 24 Hours
+	- Impediments
+- Nicholas
+	- Last 24 Hours
+	- Next 24 Hours
+	- Impediments
+- Sam
+	- Last 24 Hours
+	- Next 24 Hours
+	- Impediments
+
+> Update your sprint backlog task board and burndown chart. Make sure the URLs or images are available in your GitHub repo's README.
+#### TODO: Sprint backlog task board and burndown (mid-sprint)
+
+> There is evidence that you paired or mobbed on your code. The evidence could be a photo or video of your team working together, or it could be some other kind of evidence. The evidence is included in your README.
+#### TODO: Evidence of pair/mob programming involving all members
+
+> There is evidence that you are building your product test-first. (Fall semester only: There is at least 1 BDD / A-TDD test in your test suite, and it passes - 1 point.) There are at least 10 unit tests in your test suite, and they all pass.
+#### TODO: BDD Test, Unit Tests in repo, build as evidence
+
+> Your team conducts a Sprint Review.
+#### TODO: Screenshot of Sprint Review meeting
+
+> Your product increment is working software.
+#### TODO: Videocast of Greenlight in action
+
+> At least one stakeholder attends your sprint review, and you provide evidence that your stakeholder was there. You revise your product backlog based on the feedback you receive.
+#### TODO: Screenshot of sprint review including stakeholder
