@@ -34,15 +34,25 @@ Green Light Health App helps businesses prevent the spread of illness in their l
 # Stakeholders:
 - Business Owner
 	- Venue owner
-	- Ophthalmologist Clinician / Clinic Owner
+	- Ophthalmologist Clinician / Clinic Owner (Real Person: David Eilers, MD)
 - Employee
 - Consumer
+	- Sheltered-in-Place (Real Person: Denise Fung)
 	- Concert Goer
 	- Restaurant Diner
 	- Gym User
 - Government Health Agency
 
 # Detailed Personas:
+David Eilers, MD (Real Person)
+Saint Paul, MN
+Age 51
+Dr. Eilers specializes in Ophthalmology. He has over 23 years of experience in the medical field. He owns and manages a clinic and is an experienced business owner. He needs to keep treating patients for essential care during the pandemic, but also wants to ensure his employees and patients are safe. He would like an efficient way of checking in patients while keeping everyone involved as safe as possible.
+
+Denise Fung (Real Person)
+Age 28
+Denise Fung is a data analyst working in San Francisco, CA. She has been working from home since the pandemic started and her company is unlikely to return to the office until late this year. She wants to prevent the spread of illness and protect others, but needs to leave home for essentials. She wants an easy way to know if she has potentially been in contact with someone who is ill even if she is not showing symptoms herself so that she can stay home and protect others. She will avoid contact with others if there is a contact tracing mechanism in place to inform her that she is a potential carrier.
+
 Chris J  
 Boston, MA  
 Age 25  
@@ -99,12 +109,19 @@ Emily will be asked for feedback and guidance for items such as: Government Heal
 Find the [Product Backlog](https://github.com/jorgecotillo/green_light_health/projects/1)
 under github projects.
 
+The product backlog has been ordered by the value added to the user as well as by the user story dependencies (when applicable). The aim is to delivery the highest value user stories first. When a user story is dependent on another user story (often because the latter story would be too large on its own) the aim is to deliver them sequentially when they are the highest value stories on the product backlog.
+
+The initial estimation of the product backlog was conducted by the whole team on June 29, 2020 using an all-at-once affinity estimation technique.
+
 # Definition of Ready:
 Our D.O.R. requires that the team be able to determine "what needs to be done" and the "amount of work" required to complete a given story.
-The below checklist should be complete to ensure a story is Ready.
-- [ ] The story captures and describes a reasonable unit of work
-- [ ] The amount of work to complete the story has been estimated using the approved measurement (T-shirt Size)
-- [ ] The story is in line with the Product Vision
+The below checklist should be complete to ensure a story is ready.
+- [ ] The user story has a title which the team can use to refer to the vertical slice.
+- [ ] The user story has an excellent opening sentence of the form "As a [role], I want [X] so that [Y]".
+- [ ] The user story details capture and describe a reasonable unit of work which the development can understand.
+- [ ] The user story has been estimated by the team in story points.
+- [ ] The user story description contains clear acceptance criteria
+- [ ] The user story is in line with the Product Vision
 - [ ] All blockers and dependencies for the needed implementation are resolved
 
 # Sprint 1 Forecasted Story Points:
