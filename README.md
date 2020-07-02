@@ -139,10 +139,10 @@ The first story we intend to complete will allow a user to read and accept a hea
 a concert venue, gym, or restaurant. This initial prototype will be available in some form as a usable web UI.
 
 > You pulled stories into your sprint backlog. You pulled stories from the top of your product backlog. The aggregate size of the stories does not exceed your forecast. Only Development Team members participated in this activity.
-#### TODO: Screenshot of Sprint 1 Backlog
+#### TODO (Nicholas): Screenshot of Sprint 1 Backlog
 
 > All of the stories in your sprint backlog have size less than half your forecast velocity. If you noticed PBIs that are too large to get done in a sprint, you refined them by splitting them into smaller stories and estimating the smaller stories.
-#### TODO: Need more stories?
+#### TODO (Nicholas): Need more stories?
 
 > You decomposed stories into tasks. The tasks are clearly listed in your sprint backlog.
 #### TODO: Link to sprint backlog
