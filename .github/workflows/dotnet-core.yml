@@ -18,8 +18,8 @@ jobs:
       with:
         dotnet-version: 3.1.101
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore green_light_health/src/GreenLightHealth.sln
     - name: Build
-      run: dotnet build green_light_health/green_light_health/src/GreenLightHealth.sln --configuration Release --no-restore
+      run: dotnet build green_light_health/src/GreenLightHealth.sln --configuration Release --no-restore
     - name: Test
       run: dotnet test ../../src/GreenLightHealth.sln --no-restore --verbosity normal
