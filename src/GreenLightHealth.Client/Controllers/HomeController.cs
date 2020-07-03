@@ -25,6 +25,11 @@ namespace GreenLightHealth.Client.Controllers
             return View();
         }
 
+        public IActionResult Declaration()
+        {
+            return View();
+        }
+
         [Authorize]
         public IActionResult Privacy()
         {
