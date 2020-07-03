@@ -124,3 +124,6 @@ The below checklist should be complete to ensure a story is ready.
 - [ ] The user story description contains clear acceptance criteria
 - [ ] The user story is in line with the Product Vision
 - [ ] All blockers and dependencies for the needed implementation are resolved
+
+# Project Part 2/3 Checklist
+Please see the [Wiki page](https://github.com/jorgecotillo/green_light_health/wiki/Project-Part-2-Rubric) for all info pertaining to Part 2.
