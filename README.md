@@ -1,5 +1,8 @@
 # Green Light Health App
 
+# App CI Status
+![.NET Core](https://github.com/jorgecotillo/green_light_health/workflows/.NET%20Core/badge.svg)
+
 # Team name:
 - Coastal Vegetables
 
