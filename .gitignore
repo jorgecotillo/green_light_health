@@ -4,8 +4,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
-launch.json
-tasks.json
+**/launch.json
+**/tasks.json
 
 # User-specific files
 *.rsuser
