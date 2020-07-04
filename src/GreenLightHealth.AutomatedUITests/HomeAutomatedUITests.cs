@@ -8,6 +8,7 @@ namespace GreenLightHealth.AutomatedUITests
     public class HomeAutomatedUITests : IDisposable
     {
         private readonly IWebDriver _driver;
+        private string site = "https://cscis71-green-light-health-pr-test.azurewebsites.net/";
         public HomeAutomatedUITests()
         {
             _driver = new ChromeDriver();
@@ -22,7 +23,12 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HealthDeclaration()
         {
-            _driver.Navigate().GoToUrl("https://localhost:5001/");
+#if DEBUG
+            site = "https://localhost:5001/";
+#endif
+
+            _driver.Navigate().GoToUrl(site);
+
             Assert.Equal("Green Light Healthy - Health Declaration", _driver.Title);
             Assert.Contains("Green Light? Healthy!", _driver.PageSource);
         }
