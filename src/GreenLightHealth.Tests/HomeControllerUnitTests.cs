@@ -48,6 +48,8 @@ namespace GreenLightHealth.Tests
 
             // Assert:
             Assert.IsNotNull(viewResult);
+
+            
         }
     }
 }
