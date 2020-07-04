@@ -5,7 +5,6 @@ using Xunit;
 
 namespace GreenLightHealth.AutomatedUITests
 {
-#if DEBUG
     public class HomeAutomatedUITests : IDisposable
     {
         private readonly IWebDriver _driver;
@@ -24,11 +23,11 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HealthDeclaration()
         {
+            site = "https://localhost:5001/";
             _driver.Navigate().GoToUrl(site);
 
             Assert.Equal("Green Light Healthy - Health Declaration", _driver.Title);
             Assert.Contains("Green Light? Healthy!", _driver.PageSource);
         }
     }
-#endif
 }
