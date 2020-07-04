@@ -12,7 +12,8 @@ on:
 #
 # 2. Change these variables for your configuration:
 env:
-  AZURE_WEBAPP_NAME: 'cscis71-green-light-health'    # set this to your application's name
+  AZURE_WEBAPP_NAME: 'cscis71-green-light-health-PR-Test'    # set this to your application's name
+  AZURE_WEBAPP_SLOT_NAME: 'cscis71-green-light-health-PR-Test'
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '3.1.101'           # set this to the dot net version to use
 
@@ -47,4 +48,4 @@ jobs:
           app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_PR_TEST  }} # Define secret variable in repository settings as per action documentation
           package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
-          slot-name: 'PR-Test'
+          slot-name: ${{ env.AZURE_WEBAPP_SLOT_NAME }}
