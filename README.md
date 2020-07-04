@@ -128,5 +128,16 @@ The below checklist should be complete to ensure a story is ready.
 - [ ] The user story is in line with the Product Vision
 - [ ] All blockers and dependencies for the needed implementation are resolved
 
+# Sprint 1 Burndown Chart
+https://docs.google.com/spreadsheets/d/1wAimr26wow8j6nflQbo_E_7oXwHJKrT59--CRPgGTjE/edit#gid=1432140175
+
+# Sprint 1 Evidence of Daily Scrum
+https://github.com/jorgecotillo/green_light_health/blob/master/img/july-2-2020/scrum/sprint1-scrum1.png
+https://github.com/jorgecotillo/green_light_health/blob/master/img/july-3-2020/scrum/july3Scrum.png
+https://github.com/jorgecotillo/green_light_health/blob/master/img/july-2-2020/scrum/2020-07-02%2017_20_36-.png
+
+# Sprint 1 Evidence of Mob/Pair Programming
+
+
 # Project Part 2/3 Checklist
 Please see the [Wiki page](https://github.com/jorgecotillo/green_light_health/wiki/Project-Part-2-Rubric) for all info pertaining to Part 2.
