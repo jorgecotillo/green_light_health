@@ -5,6 +5,7 @@ using Xunit;
 
 namespace GreenLightHealth.AutomatedUITests
 {
+#if DEBUG
     public class HomeAutomatedUITests : IDisposable
     {
         private readonly IWebDriver _driver;
@@ -20,7 +21,6 @@ namespace GreenLightHealth.AutomatedUITests
             _driver.Dispose();
         }
 
-#if DEBUG
         [Fact]
         public void HealthDeclaration()
         {
