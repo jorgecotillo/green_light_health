@@ -1,8 +1,25 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Health Declaration";
 }
+<h1>@ViewData["Title"]</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<p>this will be the declaration</p>
+
+<h2>Health Declaration Form</h2>
+<p>
+    For the health and safety of our community, declaration of illness is required. Be sure that the information you'll give is accurate and complete. Please get immediate medical attention if you have any of the COVID-19 signs.
+</p>
+<button id="accept" type="button" style="background-color:#4CAF50;">Accept</button>
+<button id="decline" type="button" style="background-color:red;">Decline</button>
+
+<script>
+    document.getElementById("accept").addEventListener("click", agreeToHealthDec);
+    document.getElementById("decline").addEventListener("click", declineHealthDec);
+    //TODO figure out what needs to happen here, maybe just highlight for now
+    function agreeToHealthDec() {
+        alert ("@User.Identity.Name agrees to health declaration");
+    }
+        function declineHealthDec() {
+        alert ("@User.Identity.Name declines health declaration");
+    }
+</script>
