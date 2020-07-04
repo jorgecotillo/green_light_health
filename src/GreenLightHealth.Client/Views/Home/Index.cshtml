@@ -1,8 +1,78 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Health Declaration";
 }
+<!--<h1>@ViewData["Title"]</h1>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<p>this will be the declaration</p>
+
+<h2>Health Declaration Form</h2>
+
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Me</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Login</a></li>
+                <li><a href="#">Logout</a></li>7
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center">
+    <h3 class="margin">Green Light? Healthy!</h3>
+    <span class="stopLight"></span>
+    <h3>I'm a concert enthusiast!</h3>
 </div>
+
+<!-- Second Container -->
+<div class="container-fluid bg-2 text-center">
+    <h3 class="margin">You good?</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+    <p>
+        For the health and safety of our community, declaration of illness is required. Be sure that the information you'll give is accurate and complete. Please get immediate medical attention if you have any of the COVID-19 signs.
+    </p>
+    <button id="accept" type="button" style="background-color:#4CAF50;">Accept</button>
+    <button id="decline" type="button" style="background-color:red;">Decline</button>
+</div>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+    <h3 class="margin">Where To Find Me?</h3><br>
+    <div class="row">
+        <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="birds1.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="birds2.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+        <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <img src="birds3.jpg" class="img-responsive margin" style="width:100%" alt="Image">
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("accept").addEventListener("click", agreeToHealthDec);
+    document.getElementById("decline").addEventListener("click", declineHealthDec);
+    //TODO figure out what needs to happen here, maybe just highlight for now
+    function agreeToHealthDec() {
+        alert ("@User.Identity.Name agrees to health declaration");
+    }
+        function declineHealthDec() {
+        alert ("@User.Identity.Name declines health declaration");
+    }
+</script>
