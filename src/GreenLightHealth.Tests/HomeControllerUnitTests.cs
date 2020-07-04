@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using System;
 
 namespace GreenLightHealth.Tests
 {
@@ -24,6 +25,13 @@ namespace GreenLightHealth.Tests
                     HttpContext = new DefaultHttpContext()
                 }
             };
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException), "logger")]
+        public void ConstructorThrowsArgumentForNullLogger()
+        {
+            _ = new HomeController(null);
         }
 
         [TestMethod]
