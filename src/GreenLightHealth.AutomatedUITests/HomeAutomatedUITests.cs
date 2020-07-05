@@ -41,6 +41,7 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.NotNull(containerElement);
             Assert.True(containerElement.Displayed);
             Assert.True(containerElement.Enabled);
+            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-1 text-center");
             Assert.NotNull(childElements);
             bool stoplightFound = false;
             foreach(IWebElement element in childElements)
@@ -49,8 +50,8 @@ namespace GreenLightHealth.AutomatedUITests
                 {
                     Assert.True(element.Displayed);
                     Assert.True(element.Enabled);
-                    string classes = element.GetAttribute("class");
-                    Assert.Contains("stoplight", classes);
+                    string spanClasses = element.GetAttribute("class");
+                    Assert.Contains("stoplight", spanClasses);
                     stoplightFound = true;
                 }
             }
