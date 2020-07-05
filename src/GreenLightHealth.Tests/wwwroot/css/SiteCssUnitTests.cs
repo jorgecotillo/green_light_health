@@ -167,7 +167,7 @@ namespace GreenLightHealth.Tests.wwwroot.css
             ".stoplight {",
             "    height: 350px;",
             "    width: 350px;",
-            "    background-color: #ff0000;",
+            "    background-color: whitesmoke;",
             "    border-radius: 50%;",
             "    display: inline-block;",
             "}");

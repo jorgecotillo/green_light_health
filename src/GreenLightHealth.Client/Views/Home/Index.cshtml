@@ -1,14 +1,13 @@
-﻿@model GreenLightHealth.Client.Models.HealthDeclarationViewModel
+﻿@model GreenLightHealth.Client.Models.HomeViewModel
 
 @{
     ViewData["Title"] = "Health Declaration";
 }
 
-
 <!-- First Container -->
 <div id="container1" class="container-fluid bg-1 text-center">
     <h3 class="margin">Green Light? Healthy!</h3>
-    <span class="stoplight"></span>
+    <span id="@Model.StoplightId" class="stoplight"></span>
     <h3>I'm a concert enthusiast!</h3>
 </div>
 
@@ -17,8 +16,8 @@
     <h3 class="margin">You good?</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
     <p>@Html.Raw(Model.HealthDeclaration)</p>
-    <button id="accept" type="button" style="background-color:#4CAF50;">Accept</button>
-    <button id="decline" type="button" style="background-color:red;">Decline</button>
+    <button id="@Model.AcceptId" type="button" style="background-color:#4CAF50;" onclick="setElementGreen(@Model.StoplightId)">Accept</button>
+    <button id="@Model.DeclineId" type="button" style="background-color:red;" onclick="setElementRed(@Model.StoplightId)">Decline</button>
 </div>
 
 <!-- Third Container (Grid) -->
@@ -39,15 +38,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById("accept").addEventListener("click", agreeToHealthDec);
-    document.getElementById("decline").addEventListener("click", declineHealthDec);
-    //TODO figure out what needs to happen here, maybe just highlight for now
-    function agreeToHealthDec() {
-        alert ("@User.Identity.Name agrees to health declaration");
-    }
-        function declineHealthDec() {
-        alert ("@User.Identity.Name declines health declaration");
-    }
-</script>
