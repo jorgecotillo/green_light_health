@@ -75,19 +75,31 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.True(containerElement.Enabled);
             Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-2 text-center");
             Assert.NotNull(childElements);
-            bool healthDeclarationFound = false;
+            bool healthDeclarationHeaderFound = false;
+            bool healthDeclarationParagraphFound = false;
             foreach (IWebElement element in childElements)
             {
+                if (element.TagName.Contains("h3"))
+                {
+                    if (element.Text.Contains(homeViewModel.HealthDeclarationHeader))
+                    {
+                        healthDeclarationHeaderFound = true;
+                        Assert.True(element.Displayed);
+                        Assert.True(element.Enabled);
+                    }
+                }
+
                 if (element.TagName.Contains("p"))
                 {
-                    if(element.Text.Contains(homeViewModel.HealthDeclaration)) {
-                        healthDeclarationFound = true;
+                    if(element.Text.Contains(homeViewModel.HealthDeclarationParagraph)) {
+                        healthDeclarationParagraphFound = true;
                         Assert.True(element.Displayed);
                         Assert.True(element.Enabled);
                     }
                 }
             }
-            Assert.True(healthDeclarationFound);
+            Assert.True(healthDeclarationHeaderFound);
+            Assert.True(healthDeclarationParagraphFound);
         }
 
         [Fact]
