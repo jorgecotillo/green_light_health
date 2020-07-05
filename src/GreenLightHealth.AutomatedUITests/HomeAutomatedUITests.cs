@@ -72,6 +72,7 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.NotNull(containerElement);
             Assert.True(containerElement.Displayed);
             Assert.True(containerElement.Enabled);
+            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-2 text-center");
             Assert.NotNull(childElements);
             bool healthDeclarationFound = false;
             foreach (IWebElement element in childElements)
