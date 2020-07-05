@@ -13,11 +13,10 @@
 
 <!-- Second Container -->
 <div id="container2" class="container-fluid bg-2 text-center">
-    <h3 class="margin">You good?</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <p>@Html.Raw(Model.HealthDeclaration)</p>
-    <button id="@Model.AcceptId" type="button" style="background-color:#4CAF50;" onclick="setElementGreen(@Model.StoplightId)">Accept</button>
-    <button id="@Model.DeclineId" type="button" style="background-color:red;" onclick="setElementRed(@Model.StoplightId)">Decline</button>
+    <h3 class="margin">@Model.HealthDeclarationHeader)</h3>
+    <p>@Html.Raw(Model.HealthDeclarationParagraph)</p>
+    <button id="@Model.AcceptId" type="button" style="background-color:#4CAF50;" onclick="setElementGreen(@Model.StoplightId)">@Model.AcceptText</button>
+    <button id="@Model.DeclineId" type="button" style="background-color:red;" onclick="setElementRed(@Model.StoplightId)">@Model.DeclineText)</button>
 </div>
 
 <!-- Third Container (Grid) -->
