@@ -3,6 +3,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Xunit;
 
 namespace GreenLightHealth.AutomatedUITests
@@ -11,8 +12,11 @@ namespace GreenLightHealth.AutomatedUITests
     {
         private readonly IWebDriver _driver;
         private string site = "https://localhost:44386/";
+        private readonly HomeViewModel homeViewModel;
+
         public HomeAutomatedUITests()
         {
+            homeViewModel = new HomeViewModel();
             _driver = new ChromeDriver();
             _driver.Navigate().GoToUrl(site);
         }
@@ -61,9 +65,6 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HomeViewSecondContainerContentIsVisibleWithHealthDeclaration()
         {
-            // Arrange;
-            HealthDeclarationViewModel healthDeclarationViewModel = new HealthDeclarationViewModel();
-
             // Act:
             IWebElement containerElement = _driver.FindElement(By.Id("container2"));
             IReadOnlyCollection<IWebElement> childElements = containerElement.FindElements(By.XPath(".//*"));
@@ -79,7 +80,7 @@ namespace GreenLightHealth.AutomatedUITests
             {
                 if (element.TagName.Contains("p"))
                 {
-                    if(element.Text.Contains(healthDeclarationViewModel.HealthDeclaration)) {
+                    if(element.Text.Contains(homeViewModel.HealthDeclaration)) {
                         healthDeclarationFound = true;
                         Assert.True(element.Displayed);
                         Assert.True(element.Enabled);
@@ -103,10 +104,43 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
+        public void HomeViewStoplightBecomesGreenAfterAcceptIsClicked()
+        {
+            // Arrange:
+            IWebElement stoplightElement = _driver.FindElement(By.Id(homeViewModel.StoplightId));
+            IWebElement button = _driver.FindElement(By.Id(homeViewModel.AcceptId));
+
+            // Act:
+            button.Click();
+            Thread.Sleep(1000);
+
+            // Assert:
+            Assert.NotNull(stoplightElement);
+            Assert.NotNull(button);
+            Assert.Contains("green", stoplightElement.GetAttribute("class"));
+        }
+
+        [Fact]
+        public void HomeViewStoplightBecomesRedAfterRejectIsClicked()
+        {
+            // Arrange:
+            IWebElement stoplightElement = _driver.FindElement(By.Id(homeViewModel.StoplightId));
+            IWebElement button = _driver.FindElement(By.Id(homeViewModel.DeclineId));
+
+            // Act:
+            button.Click();
+
+            // Assert:
+            Assert.NotNull(stoplightElement);
+            Assert.NotNull(button);
+            Assert.Contains("red", stoplightElement.GetAttribute("class"));
+        }
+
+        [Fact]
         public void HomeViewContainsAcceptElement()
         {
             // Act:
-            IWebElement acceptButton = _driver.FindElement(By.Id("accept"));
+            IWebElement acceptButton = _driver.FindElement(By.Id(homeViewModel.AcceptId));
 
             // Assert:
             Assert.True(acceptButton.Displayed);
@@ -116,7 +150,7 @@ namespace GreenLightHealth.AutomatedUITests
         public void HomeViewContainsDeclineElement()
         {
             // Act:
-            IWebElement acceptButton = _driver.FindElement(By.Id("decline"));
+            IWebElement acceptButton = _driver.FindElement(By.Id(homeViewModel.DeclineId));
 
             // Assert:
             Assert.True(acceptButton.Displayed);
