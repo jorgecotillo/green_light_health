@@ -86,5 +86,17 @@ namespace GreenLightHealth.AutomatedUITests
             }
             Assert.True(healthDeclarationFound);
         }
+
+        [Fact]
+        public void HomeViewThirdContainerExists()
+        {
+            // Act:
+            IWebElement containerElement = _driver.FindElement(By.Id("container3"));
+
+            // Assert:
+            Assert.NotNull(containerElement);
+            Assert.True(containerElement.Displayed);
+            Assert.True(containerElement.Enabled);
+        }
     }
 }
