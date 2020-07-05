@@ -99,6 +99,7 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.NotNull(containerElement);
             Assert.True(containerElement.Displayed);
             Assert.True(containerElement.Enabled);
+            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-3 text-center");
         }
     }
 }
