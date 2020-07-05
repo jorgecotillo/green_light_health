@@ -24,7 +24,7 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
-        public void HealthDeclaration()
+        public void HomeViewExists()
         {
             Assert.Equal("Green Light Healthy - Health Declaration", _driver.Title);
             Assert.Contains("Green Light? Healthy!", _driver.PageSource);
