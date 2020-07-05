@@ -6,8 +6,11 @@ document.getElementById("accept").addEventListener("click", agreeToHealthDec);
 document.getElementById("decline").addEventListener("click", declineHealthDec);
 //TODO figure out what needs to happen here, maybe just highlight for now
 function agreeToHealthDec() {
-    alert ("@User.Identity.Name agrees to health declaration");
+    // alert ("@User.Identity.Name agrees to health declaration");
+    $("#stopbubble").toggleClass("green",true);
+
 }
     function declineHealthDec() {
-    alert ("@User.Identity.Name declines health declaration");
+    // alert ("@User.Identity.Name declines health declaration");
+    $("#stopbubble").toggleClass("red",true);
 }
