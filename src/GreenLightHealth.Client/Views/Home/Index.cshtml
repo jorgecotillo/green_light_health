@@ -1,4 +1,6 @@
-﻿@{
+﻿@model GreenLightHealth.Client.Models.HealthDeclarationViewModel
+
+@{
     ViewData["Title"] = "Health Declaration";
 }
 
@@ -30,12 +32,10 @@
 </div>
 
 <!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
+<div id="container2" class="container-fluid bg-2 text-center">
     <h3 class="margin">You good?</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <p>
-        For the health and safety of our community, declaration of illness is required. Be sure that the information you'll give is accurate and complete. Please get immediate medical attention if you have any of the COVID-19 signs.
-    </p>
+    <p>@Html.Raw(Model.HealthDeclaration)</p>
     <button id="accept" type="button" style="background-color:#4CAF50;">Accept</button>
     <button id="decline" type="button" style="background-color:red;">Decline</button>
 </div>

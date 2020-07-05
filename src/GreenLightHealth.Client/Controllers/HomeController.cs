@@ -22,7 +22,7 @@ namespace GreenLightHealth.Client.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return View(new HealthDeclarationViewModel());
         }
 
         [AllowAnonymous]

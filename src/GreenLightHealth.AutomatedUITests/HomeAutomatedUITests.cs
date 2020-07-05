@@ -1,3 +1,4 @@
+using GreenLightHealth.Client.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using System;
@@ -56,6 +57,34 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.True(stoplightFound);
         }
 
+        [Fact]
+        public void HomeViewSecondContainerContentIsVisibleWithHealthDeclaration()
+        {
+            // Arrange;
+            HealthDeclarationViewModel healthDeclarationViewModel = new HealthDeclarationViewModel();
 
+            // Act:
+            IWebElement containerElement = _driver.FindElement(By.Id("container2"));
+            IReadOnlyCollection<IWebElement> childElements = containerElement.FindElements(By.XPath(".//*"));
+
+            // Assert:
+            Assert.NotNull(containerElement);
+            Assert.True(containerElement.Displayed);
+            Assert.True(containerElement.Enabled);
+            Assert.NotNull(childElements);
+            bool healthDeclarationFound = false;
+            foreach (IWebElement element in childElements)
+            {
+                if (element.TagName.Contains("p"))
+                {
+                    if(element.Text.Contains(healthDeclarationViewModel.HealthDeclaration)) {
+                        healthDeclarationFound = true;
+                        Assert.True(element.Displayed);
+                        Assert.True(element.Enabled);
+                    }
+                }
+            }
+            Assert.True(healthDeclarationFound);
+        }
     }
 }
