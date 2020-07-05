@@ -38,5 +38,41 @@ namespace GreenLightHealth.Tests
             // Assert:
             Assert.IsTrue(IndexViewText.Contains(expectedHtml));
         }
+
+        [TestMethod]
+        public void FirstContainerElementExists()
+        {
+            // Arrange:
+            string expectedHtml = "<div class=\"container-fluid bg-1 text-center\">";
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(IndexViewText.Contains(expectedHtml));
+        }
+
+        [TestMethod]
+        public void SecondContainerElementExists()
+        {
+            // Arrange:
+            string expectedHtml = "<div class=\"container-fluid bg-2 text-center\">";
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(IndexViewText.Contains(expectedHtml));
+        }
+
+        [TestMethod]
+        public void ThirdContainerElementExists()
+        {
+            // Arrange:
+            string expectedHtml = "<div class=\"container-fluid bg-3 text-center\">";
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(IndexViewText.Contains(expectedHtml));
+        }
     }
 }

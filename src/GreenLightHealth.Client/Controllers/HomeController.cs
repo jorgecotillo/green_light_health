@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -10,16 +6,16 @@ using GreenLightHealth.Client.Models;
 
 namespace GreenLightHealth.Client.Controllers
 {
-    // TODO: [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
         {
-            _logger = logger;
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
+        [AllowAnonymous]
         public IActionResult Index()
         {
             return View(new HealthDeclarationViewModel());
