@@ -25,6 +25,12 @@ namespace GreenLightHealth.Client.Controllers
             return View();
         }
 
+        [Authorize]
+        public IActionResult Login()
+        {
+            return View("Index");
+        }
+
         [AllowAnonymous]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

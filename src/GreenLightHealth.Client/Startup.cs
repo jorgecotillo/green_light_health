@@ -29,8 +29,7 @@ namespace GreenLightHealth.Client
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // TODO: AuthN/AuthZ will be added in a future user story
-            /*services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
+            services.AddAuthentication(AzureADDefaults.AuthenticationScheme)
                 .AddAzureAD(options => Configuration.Bind("AzureAd", options));
 
             services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
@@ -59,21 +58,21 @@ namespace GreenLightHealth.Client
                         context.Response.Redirect("/Error");
                         context.HandleResponse(); // Suppress the exception
                         return Task.CompletedTask;
-                    },
+                    }
                     // If your application needs to authenticate single users, add your user validation below.
                     //OnTokenValidated = context =>
                     //{
                     //    return myUserValidationLogic(context.Ticket.Principal);
                     //}
                 };
-            });*/
+            });
 
             services.AddControllersWithViews(options =>
             {
-                /*var policy = new AuthorizationPolicyBuilder()
+                var policy = new AuthorizationPolicyBuilder()
                     .RequireAuthenticatedUser()
                     .Build();
-                options.Filters.Add(new AuthorizeFilter(policy));*/
+                options.Filters.Add(new AuthorizeFilter(policy));
             });
             services.AddRazorPages();
         }
