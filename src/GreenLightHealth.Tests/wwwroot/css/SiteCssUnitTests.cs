@@ -164,7 +164,7 @@ namespace GreenLightHealth.Tests.wwwroot.css
             string expectedStyling =
             String.Join(
             Environment.NewLine,
-            ".stopLight {",
+            ".stoplight {",
             "    height: 350px;",
             "    width: 350px;",
             "    background-color: #ff0000;",

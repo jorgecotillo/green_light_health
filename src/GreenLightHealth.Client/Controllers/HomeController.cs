@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using GreenLightHealth.Client.Models;
+using System;
 
 namespace GreenLightHealth.Client.Controllers
 {

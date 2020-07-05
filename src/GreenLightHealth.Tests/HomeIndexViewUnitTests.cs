@@ -43,7 +43,7 @@ namespace GreenLightHealth.Tests
         public void FirstContainerElementExists()
         {
             // Arrange:
-            string expectedHtml = "<div class=\"container-fluid bg-1 text-center\">";
+            string expectedHtml = "<div id=\"container1\" class=\"container-fluid bg-1 text-center\">";
 
             // Act: (see class constructor)
 
@@ -55,7 +55,7 @@ namespace GreenLightHealth.Tests
         public void SecondContainerElementExists()
         {
             // Arrange:
-            string expectedHtml = "<div class=\"container-fluid bg-2 text-center\">";
+            string expectedHtml = "<div id=\"container2\" class=\"container-fluid bg-2 text-center\">";
 
             // Act: (see class constructor)
 
@@ -67,7 +67,7 @@ namespace GreenLightHealth.Tests
         public void ThirdContainerElementExists()
         {
             // Arrange:
-            string expectedHtml = "<div class=\"container-fluid bg-3 text-center\">";
+            string expectedHtml = "<div id=\"container3\" class=\"container-fluid bg-3 text-center\">";
 
             // Act: (see class constructor)
 
