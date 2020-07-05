@@ -103,14 +103,23 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
-        public void HomeViewCircleTurnsGreen()
+        public void HomeViewContainsAcceptElement()
         {
             // Act:
             IWebElement acceptButton = _driver.FindElement(By.Id("accept"));
 
             // Assert:
             Assert.True(acceptButton.Displayed);
+        }
 
+        [Fact]
+        public void HomeViewContainsDeclineElement()
+        {
+            // Act:
+            IWebElement acceptButton = _driver.FindElement(By.Id("decline"));
+
+            // Assert:
+            Assert.True(acceptButton.Displayed);
         }
     }
 }
