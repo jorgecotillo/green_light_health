@@ -1,29 +1,29 @@
-﻿@{
+﻿@model GreenLightHealth.Client.Models.HealthDeclarationViewModel
+
+@{
     ViewData["Title"] = "Health Declaration";
 }
 
 
 <!-- First Container -->
-<div class="container-fluid bg-1 text-center">
-    <h2 class="margin">Green Light? Healthy!</h2>
-    <span class="stopLight"></span>
+<div id="container1" class="container-fluid bg-1 text-center">
+    <h3 class="margin">Green Light? Healthy!</h3>
+    <span class="stoplight"></span>
     <h3>I'm a concert enthusiast!</h3>
 </div>
 
 <!-- Second Container -->
-<div class="container-fluid bg-2 text-center">
-    <h2 class="margin">You good?</h2>
+<div id="container2" class="container-fluid bg-2 text-center">
+    <h3 class="margin">You good?</h3>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-    <p>
-        For the health and safety of our community, declaration of illness is required. Be sure that the information you'll give is accurate and complete. Please get immediate medical attention if you have any of the COVID-19 signs.
-    </p>
+    <p>@Html.Raw(Model.HealthDeclaration)</p>
     <button id="accept" type="button" style="background-color:#4CAF50;">Accept</button>
     <button id="decline" type="button" style="background-color:red;">Decline</button>
 </div>
 
 <!-- Third Container (Grid) -->
-<div class="container-fluid bg-3 text-center">
-    <h3 class="margin">What does all of this mean?</h3><br>
+<div id="container3" class="container-fluid bg-3 text-center">
+    <h3 class="margin">Where To Find Me?</h3><br>
     <div class="row">
         <div class="col-sm-4">
             <h2>Red Light</h2>
