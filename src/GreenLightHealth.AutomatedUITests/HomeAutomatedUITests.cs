@@ -77,6 +77,8 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.NotNull(childElements);
             bool healthDeclarationHeaderFound = false;
             bool healthDeclarationParagraphFound = false;
+            bool acceptButtonFound = false;
+            bool declineButtonFound = false;
             foreach (IWebElement element in childElements)
             {
                 if (element.TagName.Contains("h3"))
@@ -97,9 +99,28 @@ namespace GreenLightHealth.AutomatedUITests
                         Assert.True(element.Enabled);
                     }
                 }
+
+                if (element.TagName.Contains("button"))
+                {
+                    if (element.Text.Contains(homeViewModel.AcceptText))
+                    {
+                        acceptButtonFound = true;
+                        Assert.True(element.Displayed);
+                        Assert.True(element.Enabled);
+                    }
+
+                    if (element.Text.Contains(homeViewModel.DeclineText))
+                    {
+                        declineButtonFound = true;
+                        Assert.True(element.Displayed);
+                        Assert.True(element.Enabled);
+                    }
+                }
             }
             Assert.True(healthDeclarationHeaderFound);
             Assert.True(healthDeclarationParagraphFound);
+            Assert.True(acceptButtonFound);
+            Assert.True(declineButtonFound);
         }
 
         [Fact]
