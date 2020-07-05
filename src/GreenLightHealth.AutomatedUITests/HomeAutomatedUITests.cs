@@ -101,5 +101,16 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.True(containerElement.Enabled);
             Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-3 text-center");
         }
+
+        [Fact]
+        public void HomeViewCircleTurnsGreen()
+        {
+            // Act:
+            IWebElement acceptButton = _driver.FindElement(By.Id("accept"));
+
+            // Assert:
+            Assert.True(acceptButton.Displayed);
+
+        }
     }
 }
