@@ -31,7 +31,7 @@ namespace GreenLightHealth.Tests
         public void ContainsStopLightElement()
         {
             // Arrange:
-            string expectedHtml = "<span class=\"stopLight\"></span>";
+            string expectedHtml = "<span class=\"stoplight\"></span>";
 
             // Act: (see class constructor)
 
