@@ -57,6 +57,13 @@ namespace GreenLightHealth.AutomatedUITests
                     string spanClasses = element.GetAttribute("class");
                     Assert.Contains("stoplight", spanClasses);
                     stoplightFound = true;
+
+                    IReadOnlyCollection<IWebElement> stoplightChildElements = element.FindElements(By.XPath(".//*"));
+                    foreach (IWebElement stoplightChildElement in stoplightChildElements)
+                    {
+                        Assert.Contains("img", stoplightChildElement.TagName);
+                        Assert.Contains("qr-code.png", stoplightChildElement.GetAttribute("src"));
+                    }
                 }
             }
             Assert.True(stoplightFound);

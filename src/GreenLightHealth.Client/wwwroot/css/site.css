@@ -9,6 +9,16 @@ for details on configuring this project to bundle and minify static web assets. 
     border-radius: 50%;
     display: inline-block;
 }
+
+#stoplight img {
+    position: relative;
+    top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    height: 50%;
+}
+
 .green {
   background-color: green;
 }

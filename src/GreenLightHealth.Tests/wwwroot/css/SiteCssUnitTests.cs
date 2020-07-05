@@ -178,6 +178,28 @@ namespace GreenLightHealth.Tests.wwwroot.css
             Assert.IsTrue(SiteCss.Contains(expectedStyling));
         }
 
+    [TestMethod]
+        public void StoplightImageClassStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            "#stoplight img {",
+            "    position: relative;",
+            "    top: 25%;",
+            "    margin-left: auto;",
+            "    margin-right: auto;",
+            "    width: 50%;",
+            "    height: 50%;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
         [TestMethod]
         public void BodyStylingIsCorrect()
         {
