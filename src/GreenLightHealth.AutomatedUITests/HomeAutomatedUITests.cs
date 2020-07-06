@@ -90,7 +90,7 @@ namespace GreenLightHealth.AutomatedUITests
             {
                 if (element.TagName.Contains("h3"))
                 {
-                    if (element.Text.Contains(homeViewModel.HealthDeclarationHeader))
+                    if (element.Text.Equals(homeViewModel.HealthDeclarationHeader))
                     {
                         healthDeclarationHeaderFound = true;
                         Assert.True(element.Displayed);
@@ -100,7 +100,7 @@ namespace GreenLightHealth.AutomatedUITests
 
                 if (element.TagName.Contains("p"))
                 {
-                    if(element.Text.Contains(homeViewModel.HealthDeclarationParagraph)) {
+                    if(element.Text.Equals(homeViewModel.HealthDeclarationParagraph)) {
                         healthDeclarationParagraphFound = true;
                         Assert.True(element.Displayed);
                         Assert.True(element.Enabled);
@@ -116,7 +116,7 @@ namespace GreenLightHealth.AutomatedUITests
                         Assert.True(element.Enabled);
                     }
 
-                    if (element.Text.Contains(homeViewModel.DeclineText))
+                    if (element.Text.Equals(homeViewModel.DeclineText))
                     {
                         declineButtonFound = true;
                         Assert.True(element.Displayed);
