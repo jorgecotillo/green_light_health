@@ -100,7 +100,7 @@ namespace GreenLightHealth.AutomatedUITests
 
                 if (element.TagName.Contains("p"))
                 {
-                    if(element.Text.Contains(homeViewModel.HealthDeclarationParagraph)) {
+                    if(element.Text.Equals(homeViewModel.HealthDeclarationParagraph)) {
                         healthDeclarationParagraphFound = true;
                         Assert.True(element.Displayed);
                         Assert.True(element.Enabled);
