@@ -1,4 +1,5 @@
 # Green Light Health App
+https://cscis71-green-light-health.azurewebsites.net/
 
 # App CI Status
 ![.NET Core](https://github.com/jorgecotillo/green_light_health/workflows/.NET%20Core/badge.svg)
