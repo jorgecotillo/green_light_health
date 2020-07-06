@@ -90,7 +90,7 @@ namespace GreenLightHealth.AutomatedUITests
             {
                 if (element.TagName.Contains("h3"))
                 {
-                    if (element.Text.Contains(homeViewModel.HealthDeclarationHeader))
+                    if (element.Text.Equals(homeViewModel.HealthDeclarationHeader))
                     {
                         healthDeclarationHeaderFound = true;
                         Assert.True(element.Displayed);
