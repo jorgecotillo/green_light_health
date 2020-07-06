@@ -18,7 +18,7 @@
 
 <!-- Second Container -->
 <div id="container2" class="container-fluid bg-2 text-center">
-    <h3 class="margin">@Model.HealthDeclarationHeader)</h3>
+    <h3 class="margin">@Model.HealthDeclarationHeader</h3>
     <p>@Html.Raw(Model.HealthDeclarationParagraph)</p>
     <button id="@Model.AcceptId" type="button" style="background-color:#4CAF50;" onclick="setElementGreen(@Model.StoplightId)">@Model.AcceptText</button>
     <button id="@Model.DeclineId" type="button" style="background-color:red;" onclick="setElementRed(@Model.StoplightId)">@Model.DeclineText)</button>
@@ -26,19 +26,19 @@
 
 <!-- Third Container (Grid) -->
 <div id="container3" class="container-fluid bg-3 text-center">
-    <h3 class="margin">Where To Find Me?</h3><br>
+    <h3 class="margin">What do the colors mean?</h3><br>
     <div class="row">
         <div class="col-sm-4">
             <h2>Red Light</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>If a red stop light is displayed, it means the customer has declined to sign the health declaration. It could be because the customer has some symptoms or because the customer is not willing to sign the declaration.</p>
         </div>
         <div class="col-sm-4">
             <h2>Yellow Light</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>If a yellow light is displayed, it means the customer might not have symptoms yet but Green Light Healthy has determined the customer might have been in contact with someone that has tested positive or is showing symptoms.</p>
         </div>
         <div class="col-sm-4">
             <h2>Green Light</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>If a green light is displayed, it means the customer has accepted and signed the health declartion. The customer is eligibile for admission.</p>
         </div>
     </div>
 </div>
