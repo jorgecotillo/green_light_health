@@ -116,7 +116,7 @@ namespace GreenLightHealth.AutomatedUITests
                         Assert.True(element.Enabled);
                     }
 
-                    if (element.Text.Contains(homeViewModel.DeclineText))
+                    if (element.Text.Equals(homeViewModel.DeclineText))
                     {
                         declineButtonFound = true;
                         Assert.True(element.Displayed);
