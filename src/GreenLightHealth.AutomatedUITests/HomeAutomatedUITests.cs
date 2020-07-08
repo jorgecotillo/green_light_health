@@ -14,7 +14,8 @@ namespace GreenLightHealth.AutomatedUITests
         private readonly IWebDriver _driver;
         private const string SITE = "https://localhost:44386/";
         private readonly HomeViewModel homeViewModel;
-
+        private const string USER_FULL_NAME = "Test User";
+        private const string USER_EMAIL = "test@user.com";
         private const string FIRST_NAME_LAST_NAME_KEY = "firstNameLastName";
 
         public HomeAutomatedUITests()
@@ -44,17 +45,10 @@ namespace GreenLightHealth.AutomatedUITests
         public void HomeViewPresentsLoginRegistrationFormToUnidentifiedUser()
         {
             // Arrange:
-            int sleepMilliseconds = 500;
-            int totalSleepTime = 0;
-            IWebElement element = null;
+            IWebElement element;
 
             // Act:
-            while (element == null && totalSleepTime < 2000)
-            {
-                Thread.Sleep(sleepMilliseconds);
-                element = _driver.FindElement(By.Id(ViewConstants.RegistrationForm));
-                totalSleepTime += sleepMilliseconds;
-            }
+            element = FindElementByIdWithWaitTimer(ViewConstants.RegistrationForm);
 
             // Assert:
             Assert.NotNull(element);
@@ -65,24 +59,13 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HomeViewDoesNotPresentsLoginRegistrationFormToIdentifiedUser()
         {
-            // Arrange:
-
-            // Act:
-            var name_element = _driver.FindElement(By.Id("orangeForm-name"));
-            var email_element = _driver.FindElement(By.Id("orangeForm-email"));
-            var submit_element = _driver.FindElement(By.Id("btn-accept"));
-
-            name_element.SendKeys("my name");
-            email_element.SendKeys("myname@mail.com");
-            submit_element.Click();
-
+            // Arrange: (see test constructor)
+            SubmitRegistrationForm();
             _driver.Navigate().GoToUrl(SITE);
 
-            Thread.Sleep(TimeSpan.FromSeconds(2));
+            // Act:
+            var element = FindElementByIdWithWaitTimer(ViewConstants.RegistrationForm);
 
-            var element = _driver.FindElement(By.Id(ViewConstants.RegistrationForm));
-
-            // Assert:
             // Assert:
             Assert.NotNull(element);
             Assert.False(element.Displayed);
@@ -202,6 +185,7 @@ namespace GreenLightHealth.AutomatedUITests
         public void HomeViewStoplightBecomesGreenAfterAcceptIsClicked()
         {
             // Arrange:
+            SubmitRegistrationForm();
             IWebElement stoplightElement = _driver.FindElement(By.Id(homeViewModel.StoplightId));
             IWebElement button = _driver.FindElement(By.Id(homeViewModel.AcceptId));
 
@@ -219,8 +203,9 @@ namespace GreenLightHealth.AutomatedUITests
         public void HomeViewStoplightBecomesRedAfterRejectIsClicked()
         {
             // Arrange:
-            IWebElement stoplightElement = _driver.FindElement(By.Id(homeViewModel.StoplightId));
-            IWebElement button = _driver.FindElement(By.Id(homeViewModel.DeclineId));
+            SubmitRegistrationForm();
+            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
+            IWebElement button = FindElementByIdWithWaitTimer(homeViewModel.DeclineId);
 
             // Act:
             button.Click();
@@ -249,6 +234,31 @@ namespace GreenLightHealth.AutomatedUITests
 
             // Assert:
             Assert.True(acceptButton.Displayed);
+        }
+
+        private void SubmitRegistrationForm()
+        {
+            IWebElement nameInputElement = FindElementByIdWithWaitTimer("orangeForm-name");
+            IWebElement emailInputElement = FindElementByIdWithWaitTimer("orangeForm-email");
+            IWebElement submitButtonElement = FindElementByIdWithWaitTimer("btn-accept");
+            nameInputElement.SendKeys(USER_FULL_NAME);
+            emailInputElement.SendKeys(USER_EMAIL);
+            submitButtonElement.Click();
+        }
+
+        private IWebElement FindElementByIdWithWaitTimer(string elementId)
+        {
+            int sleepTimerDeltaBackofInMillieseconds = 100;
+            int totalSleepTime = 0;
+            IWebElement element = null;
+            while (element == null && totalSleepTime < 2000)
+            {
+                Thread.Sleep(sleepTimerDeltaBackofInMillieseconds);
+                element = _driver.FindElement(By.Id(elementId));
+                totalSleepTime += sleepTimerDeltaBackofInMillieseconds;
+                sleepTimerDeltaBackofInMillieseconds += sleepTimerDeltaBackofInMillieseconds;
+            }
+            return element;
         }
     }
 }
