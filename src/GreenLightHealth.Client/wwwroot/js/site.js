@@ -4,27 +4,49 @@
 function setElementRed(elementId) {
     $(elementId).removeClass("green");
     $(elementId).toggleClass("red", true);
+    $('#health-declaration-form').modal('hide');
+    $('#QrCodeId').show();
 }
 
 function setElementGreen(elementId) {
     $(elementId).removeClass("red");
     $(elementId).toggleClass("green", true);
+    $('#health-declaration-form').modal('hide');
+    $('#QrCodeId').show();
 }
 
 $(document).ready(() => {
     let user = localStorage.getItem('firstNameLastName');
-    console.log("user is: ", user);
     if (!user) {
-        $('#registration-form').modal('show');
+        $('#registration-form').modal({
+            backdrop: 'static'
+        });('show');
+        $('#welcome-text').html("I'm a concert enthusiast!");
     }
     else {
-        // TODO: populate the view with name, etc.
+        $('#health-declaration-form').modal({
+            backdrop: 'static'
+        });('show');
+        $('#welcome-text').html(user);
     }
 });
 
  $('#modalRegisterFormButton').click(function(e) {
     e.preventDefault();
-    var name = $('input#orangeForm-name').val()
+     var name = $('input#orangeForm-name').val();
     localStorage.setItem('firstNameLastName',name);
-    $('#btn-close').click();
+     $('#registration-form').modal('hide');
+     $('#health-declaration-form').modal({
+         backdrop: 'static'
+     }).show();
+     $('#welcome-text').html(name);
+ });
+
+$('#registration-form').on('hidden.bs.modal', function () {
+    let user = localStorage.getItem('firstNameLastName');
+    if (!user) {
+        $('#registration-form').modal({
+            backdrop: 'static'
+        }).show();
+    }
 });
