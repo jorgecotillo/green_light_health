@@ -251,6 +251,9 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HomeViewContainsAcceptElement()
         {
+            // Arrange:
+            SubmitRegistrationForm();
+
             // Act:
             IWebElement acceptButton = _driver.FindElement(By.Id(homeViewModel.AcceptId));
 
@@ -261,6 +264,9 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HomeViewContainsDeclineElement()
         {
+            // Arrange:
+            SubmitRegistrationForm();
+
             // Act:
             IWebElement acceptButton = _driver.FindElement(By.Id(homeViewModel.DeclineId));
 

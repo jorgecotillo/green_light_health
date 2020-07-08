@@ -29,7 +29,7 @@ $(document).ready(() => {
 
  $('#modalRegisterFormButton').click(function(e) {
     e.preventDefault();
-    var name = $('input#orangeForm-name').val()
+     var name = $('input#orangeForm-name').val();
     localStorage.setItem('firstNameLastName',name);
      $('#registration-form').modal('hide');
      $('#health-declaration-form').modal('show');
