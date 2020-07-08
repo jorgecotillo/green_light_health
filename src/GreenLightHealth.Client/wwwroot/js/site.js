@@ -18,11 +18,15 @@ function setElementGreen(elementId) {
 $(document).ready(() => {
     let user = localStorage.getItem('firstNameLastName');
     if (!user) {
-        $('#registration-form').modal('show');
+        $('#registration-form').modal({
+            backdrop: 'static'
+        });('show');
         $('#welcome-text').html("I'm a concert enthusiast!");
     }
     else {
-        $('#health-declaration-form').modal('show');
+        $('#health-declaration-form').modal({
+            backdrop: 'static'
+        });('show');
         $('#welcome-text').html(user);
     }
 });
@@ -32,13 +36,17 @@ $(document).ready(() => {
      var name = $('input#orangeForm-name').val();
     localStorage.setItem('firstNameLastName',name);
      $('#registration-form').modal('hide');
-     $('#health-declaration-form').modal('show');
+     $('#health-declaration-form').modal({
+        backdrop: 'static'
+    });('show');
      $('#welcome-text').html(name);
  });
 
 $('#registration-form').on('hidden.bs.modal', function () {
     let user = localStorage.getItem('firstNameLastName');
     if (!user) {
-        $('#registration-form').modal('show');
+        $('#registration-form').modal({
+            backdrop: 'static'
+        });('show');
     }
-});
+    });
