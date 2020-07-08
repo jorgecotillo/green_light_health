@@ -15,7 +15,11 @@ $(document).ready(() => {
     let user = localStorage.getItem('firstNameLastName');
     console.log("user is: ", user);
     if (!user) {
-        $('#registration-form').modal('show');
+        $('#registration-form').modal({
+            backdrop: 'static',
+            keyboard: false
+        });('show');
+        
     }
     else {
         // TODO: populate the view with name, etc.
