@@ -270,9 +270,9 @@ namespace GreenLightHealth.AutomatedUITests
 
         private void SubmitRegistrationForm()
         {
-            IWebElement nameInputElement = FindElementByIdWithWaitTimer("orangeForm-name");
-            IWebElement emailInputElement = FindElementByIdWithWaitTimer("orangeForm-email");
-            IWebElement submitButtonElement = FindElementByIdWithWaitTimer("btn-accept");
+            IWebElement nameInputElement = FindElementByIdWithWaitTimer(ViewConstants.NameId);
+            IWebElement emailInputElement = FindElementByIdWithWaitTimer(ViewConstants.EmailId);
+            IWebElement submitButtonElement = FindElementByIdWithWaitTimer(ViewConstants.BtnAcceptId);
             nameInputElement.SendKeys(USER_FULL_NAME);
             emailInputElement.SendKeys(USER_EMAIL);
             ClickWithWaitTimer(submitButtonElement);
