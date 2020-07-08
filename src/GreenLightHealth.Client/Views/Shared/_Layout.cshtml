@@ -24,21 +24,6 @@
                 </button>
                 <a class="navbar-brand" href="#">Me</a>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <li class="nav-item">
-                            <span class="navbar-text text-dark">Hello, @User.Identity.Name!</span>
-                        </li>
-                        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignOut">Logout</a></li>
-                    }
-                    else
-                    {
-                        <li><a asp-area="AzureAD" asp-controller="Account" asp-action="SignIn">Login</a></li>
-                    }
-                </ul>
-            </div>
         </div>
     </nav>
     <div class="container">

@@ -4,21 +4,24 @@
 function setElementRed(elementId) {
     $(elementId).removeClass("green");
     $(elementId).toggleClass("red", true);
+    $('#health-declaration-form').modal('hide');
 }
 
 function setElementGreen(elementId) {
     $(elementId).removeClass("red");
     $(elementId).toggleClass("green", true);
+    $('#health-declaration-form').modal('hide');
 }
 
 $(document).ready(() => {
     let user = localStorage.getItem('firstNameLastName');
-    console.log("user is: ", user);
     if (!user) {
         $('#registration-form').modal('show');
+        $('#welcome-text').html("I'm a concert enthusiast!");
     }
     else {
-        // TODO: populate the view with name, etc.
+        $('#health-declaration-form').modal('show');
+        $('#welcome-text').html(user);
     }
 });
 
@@ -26,5 +29,6 @@ $(document).ready(() => {
     e.preventDefault();
     var name = $('input#orangeForm-name').val()
     localStorage.setItem('firstNameLastName',name);
-    $('#btn-close').click();
+     $('#registration-form').modal('hide');
+     $('#health-declaration-form').modal('show');
 });
