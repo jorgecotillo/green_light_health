@@ -11,14 +11,19 @@ namespace GreenLightHealth.AutomatedUITests
     public class HomeAutomatedUITests : IDisposable
     {
         private readonly IWebDriver _driver;
-        private string site = "https://localhost:44386/";
+        private const string SITE = "https://localhost:44386/";
         private readonly HomeViewModel homeViewModel;
+
+        private const string FIRST_NAME_LAST_NAME_KEY = "firstNameLastName";
 
         public HomeAutomatedUITests()
         {
             homeViewModel = new HomeViewModel();
             _driver = new ChromeDriver();
-            _driver.Navigate().GoToUrl(site);
+            IJavaScriptExecutor js = (IJavaScriptExecutor) _driver;
+            string setStorageJs = "localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');";
+            _driver.Navigate().GoToUrl(SITE);
+            js.ExecuteScript(setStorageJs);
         }
 
         public void Dispose()
@@ -32,6 +37,20 @@ namespace GreenLightHealth.AutomatedUITests
         {
             Assert.Equal("Green Light Healthy - Health Declaration", _driver.Title);
             Assert.Contains("Green Light? Healthy!", _driver.PageSource);
+        }
+
+        [Fact]
+        public void HomeViewPresentsLoginRegistrationFormToUnidentifiedUser()
+        {
+            // Arrange: (see test class constructor)
+
+            // Act:
+            IWebElement containerElement = _driver.FindElement(By.Id("registration-form"));
+
+            // Assert:
+            Assert.NotNull(containerElement);
+            Assert.True(containerElement.Displayed);
+            Assert.True(containerElement.Enabled);
         }
 
         [Fact]
