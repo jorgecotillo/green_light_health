@@ -14,18 +14,21 @@ namespace GreenLightHealth.AutomatedUITests
         private readonly IWebDriver _driver;
         private const string SITE = "https://localhost:44386/";
         private readonly HomeViewModel homeViewModel;
+        private readonly IJavaScriptExecutor javaScriptExecutor;
         private const string USER_FULL_NAME = "Test User";
         private const string USER_EMAIL = "test@user.com";
         private const string FIRST_NAME_LAST_NAME_KEY = "firstNameLastName";
+        private const string REGISTRATION_FORM_ID = "health-declaration-form";
+        private const int WAIT_TIME_IN_MILLISECONDS = 100;
+        private const int MAX_WAIT_TIME_IN_MILLISECONDS = 2000;
 
         public HomeAutomatedUITests()
         {
             homeViewModel = new HomeViewModel();
             _driver = new ChromeDriver();
-            IJavaScriptExecutor js = (IJavaScriptExecutor) _driver;
+            javaScriptExecutor = (IJavaScriptExecutor) _driver;
             _driver.Navigate().GoToUrl(SITE);
-            string setStorageJs = "localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');";
-            js.ExecuteScript(setStorageJs);
+            javaScriptExecutor.ExecuteScript("localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');");
         }
 
         public void Dispose()
@@ -108,10 +111,40 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
-        public void HomeViewSecondContainerContentIsVisibleWithHealthDeclaration()
+        public void HomeViewPresentsHealthDeclarationToNewUser()
+        {
+            // Arrange:
+            SubmitRegistrationForm();
+
+            // Act:
+            var element = FindElementByIdWithWaitTimer("health-declaration-form");
+
+            // Assert:
+            Assert.NotNull(element);
+            Assert.True(element.Displayed);
+            Assert.True(element.Enabled);
+        }
+
+        [Fact]
+        public void HomeViewPresentsHealthDeclarationToIdentifiedUser()
+        {
+            // Arrange:
+            NavigateToPageAsLoggedInUser();
+
+            // Act:
+            var element = FindElementByIdWithWaitTimer(REGISTRATION_FORM_ID);
+
+            // Assert:
+            Assert.NotNull(element);
+            Assert.True(element.Displayed);
+            Assert.True(element.Enabled);
+        }
+
+        [Fact]
+        public void HomeViewHealthDeclarationFormFormatIsCorrect()
         {
             // Act:
-            IWebElement containerElement = _driver.FindElement(By.Id("container2"));
+            IWebElement containerElement = _driver.FindElement(By.Id(REGISTRATION_FORM_ID));
             IReadOnlyCollection<IWebElement> childElements = containerElement.FindElements(By.XPath(".//*"));
 
             // Assert:
@@ -190,8 +223,7 @@ namespace GreenLightHealth.AutomatedUITests
             IWebElement button = _driver.FindElement(By.Id(homeViewModel.AcceptId));
 
             // Act:
-            button.Click();
-            Thread.Sleep(1000);
+            ClickWithWaitTimer(button);
 
             // Assert:
             Assert.NotNull(stoplightElement);
@@ -208,7 +240,7 @@ namespace GreenLightHealth.AutomatedUITests
             IWebElement button = FindElementByIdWithWaitTimer(homeViewModel.DeclineId);
 
             // Act:
-            button.Click();
+            ClickWithWaitTimer(button);
 
             // Assert:
             Assert.NotNull(stoplightElement);
@@ -243,15 +275,15 @@ namespace GreenLightHealth.AutomatedUITests
             IWebElement submitButtonElement = FindElementByIdWithWaitTimer("btn-accept");
             nameInputElement.SendKeys(USER_FULL_NAME);
             emailInputElement.SendKeys(USER_EMAIL);
-            submitButtonElement.Click();
+            ClickWithWaitTimer(submitButtonElement);
         }
 
         private IWebElement FindElementByIdWithWaitTimer(string elementId)
         {
-            int sleepTimerDeltaBackofInMillieseconds = 100;
+            int sleepTimerDeltaBackofInMillieseconds = WAIT_TIME_IN_MILLISECONDS;
             int totalSleepTime = 0;
             IWebElement element = null;
-            while (element == null && totalSleepTime < 2000)
+            while (element == null && totalSleepTime < MAX_WAIT_TIME_IN_MILLISECONDS)
             {
                 Thread.Sleep(sleepTimerDeltaBackofInMillieseconds);
                 element = _driver.FindElement(By.Id(elementId));
@@ -259,6 +291,19 @@ namespace GreenLightHealth.AutomatedUITests
                 sleepTimerDeltaBackofInMillieseconds += sleepTimerDeltaBackofInMillieseconds;
             }
             return element;
+        }
+
+        private void NavigateToPageAsLoggedInUser()
+        {
+            javaScriptExecutor.ExecuteScript("localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','" + USER_FULL_NAME + "');");
+            _driver.Navigate().GoToUrl(SITE);
+            Thread.Sleep(5 * WAIT_TIME_IN_MILLISECONDS);
+        }
+
+        private void ClickWithWaitTimer(IWebElement element)
+        {
+            element.Click();
+            Thread.Sleep(5 * WAIT_TIME_IN_MILLISECONDS);
         }
     }
 }
