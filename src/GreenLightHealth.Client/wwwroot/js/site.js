@@ -9,17 +9,18 @@ function setElementRed(elementId) {
 function setElementGreen(elementId) {
     $(elementId).removeClass("red");
     $(elementId).toggleClass("green", true);
- }
+}
 
- window.onload = (event) => {
-    let user = localStorage.getItem('firstNameLastName') 
+$(document).ready(() => {
+    let user = localStorage.getItem('firstNameLastName');
+    console.log("user is: ", user);
     if (!user) {
         $('#registration-form').modal('show');
     }
     else {
         // TODO: populate the view with name, etc.
     }
- }
+});
 
  $('#modalRegisterFormButton').click(function(e) {
     e.preventDefault();

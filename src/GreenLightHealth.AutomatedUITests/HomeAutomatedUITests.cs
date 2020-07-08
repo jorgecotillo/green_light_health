@@ -63,6 +63,33 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
+        public void HomeViewDoesNotPresentsLoginRegistrationFormToIdentifiedUser()
+        {
+            // Arrange:
+
+            // Act:
+            var name_element = _driver.FindElement(By.Id("orangeForm-name"));
+            var email_element = _driver.FindElement(By.Id("orangeForm-email"));
+            var submit_element = _driver.FindElement(By.Id("btn-accept"));
+
+            name_element.SendKeys("my name");
+            email_element.SendKeys("myname@mail.com");
+            submit_element.Click();
+
+            _driver.Navigate().GoToUrl(SITE);
+
+            Thread.Sleep(TimeSpan.FromSeconds(2));
+
+            var element = _driver.FindElement(By.Id(ViewConstants.RegistrationForm));
+
+            // Assert:
+            // Assert:
+            Assert.NotNull(element);
+            Assert.False(element.Displayed);
+            Assert.True(element.Enabled);
+        }
+
+        [Fact]
         public void HomeViewFirstContainerContentIsVisibleWithStoplight()
         {
             // Act:
