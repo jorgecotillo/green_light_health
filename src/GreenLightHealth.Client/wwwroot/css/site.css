@@ -26,6 +26,10 @@ for details on configuring this project to bundle and minify static web assets. 
   background-color: #ff0000;
 }
 
+.black {
+  color: #555555;
+}
+
 /* Home View Styling */
 body {
     font: 20px Montserrat, sans-serif;

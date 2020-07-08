@@ -10,3 +10,20 @@ function setElementGreen(elementId) {
     $(elementId).removeClass("red");
     $(elementId).toggleClass("green", true);
  }
+
+ window.onload = (event) => {
+    let user = localStorage.getItem('user') 
+    if (!user) {
+        $('#modalRegisterForm').modal('show');
+    }
+    else {
+        //populate the view with name etc
+    }
+ }
+
+ $('#modalRegisterFormButton').click(function(e) {
+    e.preventDefault();
+    var email = $('input#orangeForm-email').val()
+    var name = $('input#orangeForm-name').val()
+    localStorage.setItem('firstNameLastName',name);
+});
