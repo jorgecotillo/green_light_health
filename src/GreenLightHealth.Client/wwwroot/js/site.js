@@ -26,4 +26,5 @@ $(document).ready(() => {
     e.preventDefault();
     var name = $('input#orangeForm-name').val()
     localStorage.setItem('firstNameLastName',name);
+    $('#btn-close').click();
 });
