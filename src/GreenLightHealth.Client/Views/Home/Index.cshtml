@@ -13,7 +13,7 @@
             <img src="~/qr-code.png" />
         }
     </span>
-    <h3>I'm a concert enthusiast!</h3>
+    <h3 id="welcome-text"></h3>
 </div>
 
 <!-- Second Container -->
@@ -25,9 +25,7 @@
                 <h3 class="margin" style="color:black">@Model.HealthDeclarationHeader</h3>
                 <p style="color:black">@Html.Raw(Model.HealthDeclarationParagraph)</p>
                 <button id="@Model.AcceptId" type="button" style="background-color:#4CAF50; color:black" onclick="setElementGreen(@Model.StoplightId)">@Model.AcceptText</button>
-                <button id="@Model.DeclineId" type="button" style="        background-color: red;
-        color: black
-" onclick="setElementRed(@Model.StoplightId)">@Model.DeclineText</button>
+                <button id="@Model.DeclineId" type="button" style="background-color:red; color:black" onclick="setElementRed(@Model.StoplightId)">@Model.DeclineText</button>
             </div>
         </div>
     </div>
@@ -58,9 +56,6 @@
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold black">Sign up</h4>
-                <button type="button" class="close" id="btn-close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
             </div>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">

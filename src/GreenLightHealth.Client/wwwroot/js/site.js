@@ -17,9 +17,11 @@ $(document).ready(() => {
     let user = localStorage.getItem('firstNameLastName');
     if (!user) {
         $('#registration-form').modal('show');
+        $('#welcome-text').html("I'm a concert enthusiast!");
     }
     else {
         $('#health-declaration-form').modal('show');
+        $('#welcome-text').html(user);
     }
 });
 
@@ -27,6 +29,6 @@ $(document).ready(() => {
     e.preventDefault();
     var name = $('input#orangeForm-name').val()
     localStorage.setItem('firstNameLastName',name);
-     $('#btn-close').click();
+     $('#registration-form').modal('hide');
      $('#health-declaration-form').modal('show');
 });
