@@ -1,3 +1,4 @@
+using GreenLightHealth.Client.Constants;
 using GreenLightHealth.Client.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -51,7 +52,7 @@ namespace GreenLightHealth.AutomatedUITests
             while (element == null && totalSleepTime < 2000)
             {
                 Thread.Sleep(sleepMilliseconds);
-                element = _driver.FindElement(By.Id("registration-form"));
+                element = _driver.FindElement(By.Id(ViewConstants.RegistrationForm));
                 totalSleepTime += sleepMilliseconds;
             }
 

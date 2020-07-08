@@ -12,5 +12,8 @@ namespace GreenLightHealth.Client.Constants
         public const string AcceptId = "accept";
 
         public const string DeclineId = "decline";
+        public const string RegistrationForm = "registration-form";
+
+        
     }
 }
