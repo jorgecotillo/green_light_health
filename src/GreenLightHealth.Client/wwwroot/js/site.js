@@ -37,8 +37,8 @@ $(document).ready(() => {
     localStorage.setItem('firstNameLastName',name);
      $('#registration-form').modal('hide');
      $('#health-declaration-form').modal({
-        backdrop: 'static'
-    });('show');
+         backdrop: 'static'
+     }).show();
      $('#welcome-text').html(name);
  });
 
@@ -47,6 +47,6 @@ $('#registration-form').on('hidden.bs.modal', function () {
     if (!user) {
         $('#registration-form').modal({
             backdrop: 'static'
-        });('show');
+        }).show();
     }
-    });
+});
