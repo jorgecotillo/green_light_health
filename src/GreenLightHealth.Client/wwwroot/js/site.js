@@ -41,4 +41,4 @@ $('#registration-form').on('hidden.bs.modal', function () {
     if (!user) {
         $('#registration-form').modal('show');
     }
-})
+});

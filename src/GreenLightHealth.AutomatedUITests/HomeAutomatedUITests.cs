@@ -143,62 +143,19 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HomeViewHealthDeclarationFormFormatIsCorrect()
         {
-            // Act:
-            IWebElement containerElement = _driver.FindElement(By.Id(REGISTRATION_FORM_ID));
-            IReadOnlyCollection<IWebElement> childElements = containerElement.FindElements(By.XPath(".//*"));
+            // Arrange:
+            SubmitRegistrationForm();
 
-            // Assert:
-            Assert.NotNull(containerElement);
-            Assert.True(containerElement.Displayed);
-            Assert.True(containerElement.Enabled);
-            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-2 text-center");
-            Assert.NotNull(childElements);
-            bool healthDeclarationHeaderFound = false;
-            bool healthDeclarationParagraphFound = false;
-            bool acceptButtonFound = false;
-            bool declineButtonFound = false;
-            foreach (IWebElement element in childElements)
-            {
-                if (element.TagName.Contains("h3"))
-                {
-                    if (element.Text.Equals(homeViewModel.HealthDeclarationHeader))
-                    {
-                        healthDeclarationHeaderFound = true;
-                        Assert.True(element.Displayed);
-                        Assert.True(element.Enabled);
-                    }
-                }
-
-                if (element.TagName.Contains("p"))
-                {
-                    if(element.Text.Equals(homeViewModel.HealthDeclarationParagraph)) {
-                        healthDeclarationParagraphFound = true;
-                        Assert.True(element.Displayed);
-                        Assert.True(element.Enabled);
-                    }
-                }
-
-                if (element.TagName.Contains("button"))
-                {
-                    if (element.Text.Contains(homeViewModel.AcceptText))
-                    {
-                        acceptButtonFound = true;
-                        Assert.True(element.Displayed);
-                        Assert.True(element.Enabled);
-                    }
-
-                    if (element.Text.Equals(homeViewModel.DeclineText))
-                    {
-                        declineButtonFound = true;
-                        Assert.True(element.Displayed);
-                        Assert.True(element.Enabled);
-                    }
-                }
-            }
-            Assert.True(healthDeclarationHeaderFound);
-            Assert.True(healthDeclarationParagraphFound);
-            Assert.True(acceptButtonFound);
-            Assert.True(declineButtonFound);
+            // Act & Assert:
+            AssertWebElementIsVisibleById(REGISTRATION_FORM_ID);
+            IWebElement healthDeclarationHeader = AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationHeaderId);
+            Assert.True(healthDeclarationHeader.Text.Equals(homeViewModel.HealthDeclarationHeader));
+            IWebElement healthDeclarationParagraph = AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationParagraphId);
+            Assert.True(healthDeclarationParagraph.Text.Equals(homeViewModel.HealthDeclarationParagraph));
+            IWebElement acceptButton = AssertWebElementIsVisibleById(ViewConstants.AcceptId);
+            Assert.True(acceptButton.Text.Equals(homeViewModel.AcceptText));
+            IWebElement declineButton = AssertWebElementIsVisibleById(ViewConstants.DeclineId);
+            Assert.True(declineButton.Text.Equals(homeViewModel.DeclineText));
         }
 
         [Fact]
@@ -272,6 +229,15 @@ namespace GreenLightHealth.AutomatedUITests
 
             // Assert:
             Assert.True(acceptButton.Displayed);
+        }
+
+        private IWebElement AssertWebElementIsVisibleById(string elementId)
+        {
+            IWebElement element = _driver.FindElement(By.Id(elementId));
+            Assert.NotNull(element);
+            Assert.True(element.Displayed);
+            Assert.True(element.Enabled);
+            return element;
         }
 
         private void SubmitRegistrationForm()

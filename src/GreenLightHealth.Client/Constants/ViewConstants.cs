@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace GreenLightHealth.Client.Constants
+﻿namespace GreenLightHealth.Client.Constants
 {
     public class ViewConstants
     {
         public const string StoplightId = "stoplight";
 
-
         public const string QrCodeId = "qrCode";
-        //<img src = "~/qr-code.png" />
+
+        public const string HealthDeclarationHeaderId = "health-declaration";
+        
+        public const string HealthDeclarationParagraphId = "health-declaration-text";
 
         public const string AcceptId = "accept";
 
@@ -24,7 +21,5 @@ namespace GreenLightHealth.Client.Constants
         public const string BtnAcceptId = "btn-accept";
 
         public const string EmailId = "orangeForm-email";
-
-        
     }
 }
