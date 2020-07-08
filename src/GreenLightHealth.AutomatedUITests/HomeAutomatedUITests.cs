@@ -18,7 +18,6 @@ namespace GreenLightHealth.AutomatedUITests
         private const string USER_FULL_NAME = "Test User";
         private const string USER_EMAIL = "test@user.com";
         private const string FIRST_NAME_LAST_NAME_KEY = "firstNameLastName";
-        private const string REGISTRATION_FORM_ID = "health-declaration-form";
         private const int WAIT_TIME_IN_MILLISECONDS = 100;
         private const int MAX_WAIT_TIME_IN_MILLISECONDS = 2000;
 
@@ -86,28 +85,8 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.NotNull(containerElement);
             Assert.True(containerElement.Displayed);
             Assert.True(containerElement.Enabled);
-            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-1 text-center");
+            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-1 text-center w3-animate-right");
             Assert.NotNull(childElements);
-            bool stoplightFound = false;
-            foreach(IWebElement element in childElements)
-            {
-                if(element.TagName.Contains("span"))
-                {
-                    Assert.True(element.Displayed);
-                    Assert.True(element.Enabled);
-                    string spanClasses = element.GetAttribute("class");
-                    Assert.Contains("stoplight", spanClasses);
-                    stoplightFound = true;
-
-                    IReadOnlyCollection<IWebElement> stoplightChildElements = element.FindElements(By.XPath(".//*"));
-                    foreach (IWebElement stoplightChildElement in stoplightChildElements)
-                    {
-                        Assert.Contains("img", stoplightChildElement.TagName);
-                        Assert.Contains("qr-code.png", stoplightChildElement.GetAttribute("src"));
-                    }
-                }
-            }
-            Assert.True(stoplightFound);
         }
 
         [Fact]
@@ -132,7 +111,7 @@ namespace GreenLightHealth.AutomatedUITests
             NavigateToPageAsLoggedInUser();
 
             // Act:
-            var element = FindElementByIdWithWaitTimer(REGISTRATION_FORM_ID);
+            var element = FindElementByIdWithWaitTimer(ViewConstants.HealthDeclarationModalId);
 
             // Assert:
             Assert.NotNull(element);
@@ -147,7 +126,7 @@ namespace GreenLightHealth.AutomatedUITests
             SubmitRegistrationForm();
 
             // Act & Assert:
-            AssertWebElementIsVisibleById(REGISTRATION_FORM_ID);
+            AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationModalId);
             IWebElement healthDeclarationHeader = AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationHeaderId);
             Assert.True(healthDeclarationHeader.Text.Equals(homeViewModel.HealthDeclarationHeader));
             IWebElement healthDeclarationParagraph = AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationParagraphId);
@@ -168,7 +147,7 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.NotNull(containerElement);
             Assert.True(containerElement.Displayed);
             Assert.True(containerElement.Enabled);
-            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-3 text-center");
+            Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-3 text-center w3-animate-left");
         }
 
         [Fact]
@@ -233,7 +212,7 @@ namespace GreenLightHealth.AutomatedUITests
 
         private IWebElement AssertWebElementIsVisibleById(string elementId)
         {
-            IWebElement element = _driver.FindElement(By.Id(elementId));
+            IWebElement element = FindElementByIdWithWaitTimer(elementId);
             Assert.NotNull(element);
             Assert.True(element.Displayed);
             Assert.True(element.Enabled);

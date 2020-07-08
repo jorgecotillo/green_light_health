@@ -1,18 +1,24 @@
 ﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 // for details on configuring this project to bundle and minify static web assets.
 
-function setElementRed(elementId) {
-    $(elementId).removeClass("green");
-    $(elementId).toggleClass("red", true);
-    $('#health-declaration-form').modal('hide');
-    $('#QrCodeId').show();
+function setElementRed(stoplightId, greenBulbId, redBulbId, healthModalId, qrCodeId) {
+    $("#" + stoplightId).removeClass("green");
+    $("#" + greenBulbId).removeClass("green");
+    $("#" + stoplightId).toggleClass("red", true);
+    $("#" + redBulbId).toggleClass("red", true);
+    $("#" + healthModalId).modal('hide');
+    $("#" + qrCodeId).show();
+    $("#" + qrCodeId).toggleClass("red", true);
 }
 
-function setElementGreen(elementId) {
-    $(elementId).removeClass("red");
-    $(elementId).toggleClass("green", true);
-    $('#health-declaration-form').modal('hide');
-    $('#QrCodeId').show();
+function setElementGreen(stoplightId, greenBulbId, redBulbId, healthModalId, qrCodeId) {
+    $("#" + stoplightId).removeClass("red");
+    $("#" + redBulbId).removeClass("red");
+    $("#" + stoplightId).toggleClass("green", true);
+    $("#" + greenBulbId).toggleClass("green", true);
+    $("#" + healthModalId).modal('hide');
+    $("#" + qrCodeId).show();
+    $("#" + qrCodeId).toggleClass("green", true);
 }
 
 $(document).ready(() => {
@@ -21,7 +27,7 @@ $(document).ready(() => {
         $('#registration-form').modal({
             backdrop: 'static'
         });('show');
-        $('#welcome-text').html("I'm a concert enthusiast!");
+        $('#welcome-text').html("Welcome!");
     }
     else {
         $('#health-declaration-form').modal({

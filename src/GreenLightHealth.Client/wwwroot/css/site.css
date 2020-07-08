@@ -1,13 +1,76 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.stoplight-circle {
+    background-color: rgba(64, 64, 64, 0.3);
+    border-radius: 100%;
+    position: relative;
+    height: 80px;
+    width: 80px;
+}
+
+.stoplight-circle::after {
+    border-right: 4px solid rgba(255, 255, 255, 0.6);
+    border-radius: 100%;
+    content: ' ';
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    width: 75%;
+    height: 70%;
+}
+
+.stoplight-container {
+    background-color: #8f8f8f;
+    border: 0.25em solid #aaaaaa;
+    border-radius: 75px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px 0;
+    height: 100%;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.stoplight-circle.red {
+    background-color: #e0746d;
+    box-shadow: 0 0 20px 5px #e0746d;
+}
+
+.stoplight-circle.yellow {
+    background-color: #f5edab;
+    box-shadow: 0 0 20px 5px #f5edab;
+}
+
+.stoplight-circle.green {
+    background-color: #6ed182;
+    box-shadow: 0 0 20px 5px #6ed182;
+}
+
+.qr-code-img {
+    background: #fafafa;
+    border: 0.25em solid #d19c6f;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 256px;
+    max-width: 256px;
+    width: 50%;
+    height: 50%;
+}
+
 /* Stoplight Styling */
 .stoplight {
-    height: 350px;
-    width: 350px;
-    background-color: whitesmoke;
+    height: 400px;
+    width: 400px;
+    background-color: #aaaaaa;
     border-radius: 50%;
-    display: inline-block;
+    border: 0.25em solid #d19c6f;
+    padding: 0.25em;
+    margin-bottom: 2em;
 }
 
 #stoplight img {
@@ -20,14 +83,15 @@ for details on configuring this project to bundle and minify static web assets. 
 }
 
 .green {
-  background-color: green;
+    background-color: #6ed182;
 }
-.red{
-  background-color: #ff0000;
+
+.red {
+    background-color: #e0746d;
 }
 
 .black {
-  color: #555555;
+    color: #555555;
 }
 
 /* Home View Styling */
@@ -37,33 +101,97 @@ body {
     color: #f5f6f7;
 }
 
-
-
 p {
     font-size: 1em;
+    font-weight: bold;
+    color: #ffffff;
 }
 
 .margin {
     margin-bottom: 45px;
 }
 
+h2, h4 {
+    font-weight: bold;
+}
+
 h2 {
-    color: #ffffff;
+    font-size: 2.5em;
+}
+
+h4 {
+    font-size: 1.5em;
+}
+
+
+h3 {
+    font-size: 2em;
+}
+
+h1, h2, h3, h4 {
+    color: #f0f0f0;
+}
+
+
+input[type=text], input[type=email] {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.modal-header {
+    font-weight: bold;
+    font-size: 1.5em;
+    color: #6ed182;
+    margin-bottom: 0em;
+}
+
+.modal-body {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-size: 1em;
+    color: #646464;
+}
+
+button {
+    margin-left: 1em;
+    margin-right: 1em;
+    border: 0.1em solid #878787;
+    transition: all .2s ease-in-out;
+    padding: 1em;
+}
+
+button:hover {
+    transform: scale(1.25);
+}
+
+.modal-footer {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: center;
+    grid-gap: 1em;
+    margin-top: 0em;
+    font-size: 1.5em;
+    color: #646464;
 }
 
 .bg-1 {
-    background-color: #bad1b6;
-    color: #555555;
+    background-color: #6fc1d1;
+    color: #f0f0f0;
 }
 
 .bg-2 {
-    background-color: #eadbb0;
-    color: #555555;
+    background-color: #d1ad7b;
+    color: #f0f0f0;
 }
 
 .bg-3 {
-    background-color: #e0a39f;
-    color: #555555;
+    background-color: #aaaaaa;
+}
+
+.bg-4 {
+    color: #323232;
+    font-size: 1.25em;
 }
 
 .container-fluid {
@@ -84,45 +212,43 @@ h2 {
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  font-size: 1em;
+    font-size: 1em;
 }
+
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .border-top {
-  border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
 }
+
 .border-bottom {
-  border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
 }
 
 .box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
 }
 
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
 }
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
 }

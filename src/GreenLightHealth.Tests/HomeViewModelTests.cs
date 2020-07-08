@@ -43,7 +43,7 @@ namespace GreenLightHealth.Tests
         public void AcceptTextIsCorrect()
         {
             // Arrange:
-            const string expected = "Accept";
+            const string expected = "No";
 
             // Act:
             string actual = homeViewModel.AcceptText;
@@ -69,7 +69,7 @@ namespace GreenLightHealth.Tests
         public void DeclineTextIsCorrect()
         {
             // Arrange:
-            const string expected = "Decline";
+            const string expected = "Yes";
 
             // Act:
             string actual = homeViewModel.DeclineText;
@@ -95,7 +95,7 @@ namespace GreenLightHealth.Tests
         public void HealthDeclarationParagraphIsCorrect()
         {
             // Arrange:
-            const string expected = "For the health and safety of our community, declaration of illness is required. Be sure that the information you'll give is accurate and complete. Please get immediate medical attention if you have any of the COVID-19 signs.";
+            const string expected = "For the health and safety of our community, your declaration of health is required. Please get immediate medical attention if you have any signs of COVID-19. Do you, to the best of your knowledge, have any symptoms or positive test results for COVID-19?";
 
             // Act:
             string actual = homeViewModel.HealthDeclarationParagraph;

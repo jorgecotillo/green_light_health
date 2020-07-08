@@ -36,7 +36,7 @@ namespace GreenLightHealth.Tests.wwwroot.css
             String.Join(
             Environment.NewLine,
             "h2 {",
-            "    color: #ffffff;",
+            "    font-size: 2.5em;",
             "}");
 
             // Act: (see class constructor)
@@ -53,8 +53,8 @@ namespace GreenLightHealth.Tests.wwwroot.css
             String.Join(
             Environment.NewLine,
             ".bg-1 {",
-            "    background-color: #bad1b6;",
-            "    color: #555555;",
+            "    background-color: #6fc1d1;",
+            "    color: #f0f0f0;",
             "}");
 
             // Act: (see class constructor)
@@ -71,8 +71,8 @@ namespace GreenLightHealth.Tests.wwwroot.css
             String.Join(
             Environment.NewLine,
             ".bg-2 {",
-            "    background-color: #eadbb0;",
-            "    color: #555555;",
+            "    background-color: #d1ad7b;",
+            "    color: #f0f0f0;",
             "}");
 
             // Act: (see class constructor)
@@ -89,8 +89,7 @@ namespace GreenLightHealth.Tests.wwwroot.css
             String.Join(
             Environment.NewLine,
             ".bg-3 {",
-            "    background-color: #e0a39f;",
-            "    color: #555555;",
+            "    background-color: #aaaaaa;",
             "}");
 
             // Act: (see class constructor)
@@ -165,11 +164,13 @@ namespace GreenLightHealth.Tests.wwwroot.css
             String.Join(
             Environment.NewLine,
             ".stoplight {",
-            "    height: 350px;",
-            "    width: 350px;",
-            "    background-color: whitesmoke;",
+            "    height: 400px;",
+            "    width: 400px;",
+            "    background-color: #aaaaaa;",
             "    border-radius: 50%;",
-            "    display: inline-block;",
+            "    border: 0.25em solid #d19c6f;",
+            "    padding: 0.25em;",
+            "    margin-bottom: 2em;",
             "}");
 
             // Act: (see class constructor)
@@ -228,6 +229,8 @@ namespace GreenLightHealth.Tests.wwwroot.css
             Environment.NewLine,
             "p {",
             "    font-size: 1em;",
+            "    font-weight: bold;",
+            "    color: #ffffff;",
             "}");
 
             // Act: (see class constructor)

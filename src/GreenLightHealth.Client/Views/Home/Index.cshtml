@@ -4,73 +4,78 @@
     ViewData["Title"] = "Health Declaration";
 }
 
-<div id="container1" class="container-fluid bg-1 text-center">
-    <h3 class="margin">Green Light? Healthy!</h3>
-    <span id="@Model.StoplightId" class="stoplight">
-        <img id="QrCodeId" hidden src="~/qr-code.png" />
-    </span>
+<div id="container1" class="container-fluid bg-1 text-center w3-animate-right">
+    <h2 class="margin">Green Light? Healthy!</h2>
+    <div id="@Model.StoplightId" class="container stoplight">
+        <div class="stoplight-container">
+            <div id="@Model.StoplightRedBulbId" class="stoplight-circle" color="red"></div>
+            <div id="@Model.StoplightYellowBulbId" class="stoplight-circle" color="yellow"></div>
+            <div id="@Model.StoplightGreenBulbId" class="stoplight-circle" color="green"></div>
+        </div>
+    </div>
     <h3 id="welcome-text"></h3>
 </div>
-<div id="container3" class="container-fluid bg-3 text-center">
-    <h3 class="margin">What do the colors mean?</h3><br>
+
+<div id="@Model.QrCodeId" hidden class="container-fluid text-center w3-animate-bottom">
+    <img class="qr-code-img" src="~/qr-code.png" />
+</div>
+
+<div id="container3" class="container-fluid bg-3 text-center w3-animate-left">
+    <h2 class="margin">Are you safe?</h2><br>
     <div class="row">
         <div class="col-sm-4">
-            <h2>Red Light</h2>
-            <p>If a red stop light is displayed, it means the customer has declined to sign the health declaration. It could be because the customer has some symptoms or because the customer is not willing to sign the declaration.</p>
+            <h4 style="color:pink">Red Light</h4>
+            <p>You have self-declared that you have symptoms or a positive test result. You could be at risk or put others at risk. Please seek consultation from medical experts to protect yourself and others if you have symptoms or a positive test result.</p>
         </div>
         <div class="col-sm-4">
-            <h2>Yellow Light</h2>
-            <p>If a yellow light is displayed, it means the customer might not have symptoms yet but Green Light Healthy has determined the customer might have been in contact with someone that has tested positive or is showing symptoms.</p>
+            <h4 style="color:lightyellow">Yellow Light</h4>
+            <p>You have declared that you are free of smptoms and have no positive test results. However, you may have been exposed through contact to others who are now reporting symptoms of illness. Please seek consultation from medical experts to protect yourself and others.</p>
         </div>
         <div class="col-sm-4">
-            <h2>Green Light</h2>
-            <p>If a green light is displayed, it means the customer has accepted and signed the health declartion. The customer is eligibile for admission.</p>
+            <h4 style="color:lightgreen">Green Light</h4>
+            <p>You have declared that you are free of smptoms and have no positive test results. Additionally, your contact history is clear of other who are now marked red. Please be careful and follow all regulatory guidelines to continue to protect yourself and others from illness.</p>
         </div>
     </div>
 </div>
 
 <!-- Login/Registration Form Modal -->
-<div class="modal fade in" id="registration-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+<div class="modal fade in" id="@Model.LoginRegistrationModalId" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
-            <div class="modal-header text-center">
-                <h4 class="modal-title w-100 font-weight-bold black">Sign up</h4>
-            </div>
+                <h4 class="modal-header text-center modal-title w-100 font-weight-bold black">Welcome to Green Light Healthy!</h4>
             <div class="modal-body mx-3">
                 <div class="md-form mb-5">
                     <i class="fas fa-user prefix grey-text"></i>
-                    <label class="black" data-error="wrong" data-success="right" for="orangeForm-name">Full name</label>
+                    <label class="black" data-error="wrong" data-success="right" for="orangeForm-name">What is your full name?</label>
                     <input type="text" id="orangeForm-name" class="form-control validate black">
                 </div>
+                <br/>
                 <div class="md-form mb-5">
                     <i class="fas fa-envelope prefix grey-text"></i>
-                    <label class="black" data-error="wrong" data-success="right" for="orangeForm-email">Email</label>
+                    <label class="black" data-error="wrong" data-success="right" for="orangeForm-email">What is your email address?</label>
                     <input type="email" id="orangeForm-email" class="form-control validate">
                 </div>
 
             </div>
             <div id="modalRegisterFormButton" class="modal-footer d-flex justify-content-center">
-                <button class="btn btn-deep-orange black" id="btn-accept">Login / Register</button>
+                <button class="bg-1" id="btn-accept">Login and/or Register</button>
             </div>
         </div>
     </div>
 </div>
 
 <!-- Health Declaration Modal -->
-<div class="modal fade in" id="health-declaration-form" tabindex="-1" role="dialog" aria-labelledby="myHealthModalLabel" aria-hidden="true">
+<div class="modal fade in" id="@Model.HealthDeclarationModalId" tabindex="-1" role="dialog" aria-labelledby="myHealthModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                <h3 id="@Model.HealthDeclarationHeaderId" class="margin text-center" style="color:black">@Model.HealthDeclarationHeader</h3>
+        <div class="modal-content d-flex justify-content-center">
+            <h3 id="@Model.HealthDeclarationHeaderId" class="margin text-center modal-header">@Model.HealthDeclarationHeader</h3>
+            <div id="@Model.HealthDeclarationParagraphId" class="modal-body mx-3 bg-4">
+                @Html.Raw(Model.HealthDeclarationParagraph)
             </div>
-            <div class="modal-body mx-3">
-                <!--div id="container2" class="container-fluid bg-2 text-center"-->
-                <p id="@Model.HealthDeclarationParagraphId" style="color:black">@Html.Raw(Model.HealthDeclarationParagraph)</p>
-            </div>
-            <div class="modal-footer d-flex justify-content-center">
-                <button id="@Model.AcceptId" type="button" style="background-color:#4CAF50; color:black" onclick="setElementGreen(@Model.StoplightId)">@Model.AcceptText</button>
-                <button id="@Model.DeclineId" type="button" style="background-color:red; color:black" onclick="setElementRed(@Model.StoplightId)">@Model.DeclineText</button>
+            <div class="modal-footer">
+                <button id="@Model.DeclineId" class="bg-1" type="button" onclick="setElementRed('@Model.StoplightId', '@Model.StoplightGreenBulbId', '@Model.StoplightRedBulbId', '@Model.HealthDeclarationModalId', '@Model.QrCodeId')">@Model.DeclineText</button>
+                <button id="@Model.AcceptId" class="bg-1" type="button" onclick="setElementGreen('@Model.StoplightId', '@Model.StoplightGreenBulbId', '@Model.StoplightRedBulbId', '@Model.HealthDeclarationModalId', '@Model.QrCodeId')">@Model.AcceptText</button>
             </div>
         </div>
     </div>
