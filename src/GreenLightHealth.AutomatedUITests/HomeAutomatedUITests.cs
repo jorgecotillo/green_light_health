@@ -21,8 +21,8 @@ namespace GreenLightHealth.AutomatedUITests
             homeViewModel = new HomeViewModel();
             _driver = new ChromeDriver();
             IJavaScriptExecutor js = (IJavaScriptExecutor) _driver;
-            string setStorageJs = "localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');";
             _driver.Navigate().GoToUrl(SITE);
+            string setStorageJs = "localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');";
             js.ExecuteScript(setStorageJs);
         }
 
@@ -42,15 +42,23 @@ namespace GreenLightHealth.AutomatedUITests
         [Fact]
         public void HomeViewPresentsLoginRegistrationFormToUnidentifiedUser()
         {
-            // Arrange: (see test class constructor)
+            // Arrange:
+            int sleepMilliseconds = 500;
+            int totalSleepTime = 0;
+            IWebElement element = null;
 
             // Act:
-            IWebElement containerElement = _driver.FindElement(By.Id("registration-form"));
+            while (element == null && totalSleepTime < 2000)
+            {
+                Thread.Sleep(sleepMilliseconds);
+                element = _driver.FindElement(By.Id("registration-form"));
+                totalSleepTime += sleepMilliseconds;
+            }
 
             // Assert:
-            Assert.NotNull(containerElement);
-            Assert.True(containerElement.Displayed);
-            Assert.True(containerElement.Enabled);
+            Assert.NotNull(element);
+            Assert.True(element.Displayed);
+            Assert.True(element.Enabled);
         }
 
         [Fact]

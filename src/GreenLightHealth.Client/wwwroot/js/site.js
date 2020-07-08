@@ -12,18 +12,17 @@ function setElementGreen(elementId) {
  }
 
  window.onload = (event) => {
-    let user = localStorage.getItem('user') 
+    let user = localStorage.getItem('firstNameLastName') 
     if (!user) {
-        $('#modalRegisterForm').modal('show');
+        $('#registration-form').modal('show');
     }
     else {
-        //populate the view with name etc
+        // TODO: populate the view with name, etc.
     }
  }
 
  $('#modalRegisterFormButton').click(function(e) {
     e.preventDefault();
-    var email = $('input#orangeForm-email').val()
     var name = $('input#orangeForm-name').val()
     localStorage.setItem('firstNameLastName',name);
 });
