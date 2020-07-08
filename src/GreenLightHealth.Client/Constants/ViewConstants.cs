@@ -9,9 +9,14 @@ namespace GreenLightHealth.Client.Constants
     {
         public const string StoplightId = "stoplight";
 
+
+        public const string QrCodeId = "qrCode";
+        //<img src = "~/qr-code.png" />
+
         public const string AcceptId = "accept";
 
         public const string DeclineId = "decline";
+
         public const string RegistrationForm = "registration-form";
 
         public const string NameId = "orangeForm-name";

@@ -82,7 +82,7 @@ namespace GreenLightHealth.Tests
         public void HealthDeclarationHeaderIsCorrect()
         {
             // Arrange:
-            const string expected = "Are You Healthy?";
+            const string expected = "Health Declaration";
 
             // Act:
             string actual = homeViewModel.HealthDeclarationHeader;

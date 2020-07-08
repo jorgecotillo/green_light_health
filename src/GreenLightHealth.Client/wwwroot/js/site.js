@@ -5,12 +5,14 @@ function setElementRed(elementId) {
     $(elementId).removeClass("green");
     $(elementId).toggleClass("red", true);
     $('#health-declaration-form').modal('hide');
+    $('#QrCodeId').show();
 }
 
 function setElementGreen(elementId) {
     $(elementId).removeClass("red");
     $(elementId).toggleClass("green", true);
     $('#health-declaration-form').modal('hide');
+    $('#QrCodeId').show();
 }
 
 $(document).ready(() => {
@@ -39,4 +41,4 @@ $('#registration-form').on('hidden.bs.modal', function () {
     if (!user) {
         $('#registration-form').modal('show');
     }
-}) 
+})
