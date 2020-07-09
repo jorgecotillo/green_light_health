@@ -147,7 +147,7 @@ namespace GreenLightHealth.Tests
         public void YellowLightDefinitionIdIsCorrect()
         {
             // Arrange:
-            const string expected = "yellow-definition";
+            const string expected = "yellowlight-definition";
 
             // Act:
             string actual = homeViewModel.YellowLightDefinitionId;
