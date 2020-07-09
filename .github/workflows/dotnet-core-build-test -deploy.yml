@@ -1,0 +1,44 @@
+name: Build & Test & Deploy
+
+on:
+  push:
+    branches: [ master ]
+
+env:
+  AZURE_WEBAPP_NAME: 'cscis71-green-light-health'
+  AZURE_WEBAPP_SLOT_NAME: 'PR-Test'
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  DOTNET_VERSION: '3.1.101'
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+      # Checkout the repo
+      - uses: actions/checkout@master
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+      
+      # Run dotnet build and publish
+      - name: Install dependencies
+        run: dotnet restore src/GreenLightHealth.sln
+      - name: Build
+        run: dotnet build src/GreenLightHealth.sln --configuration Release --no-restore
+      - name: Test
+        run: dotnet test src/GreenLightHealth.AutomatedUITests/GreenLightHealth.AutomatedUITests.csproj --no-restore --verbosity detailed
+      - name: Publish
+        run: dotnet publish src/GreenLightHealth.sln -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE  }}
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+          slot-name: ${{ env.AZURE_WEBAPP_SLOT_NAME }}
