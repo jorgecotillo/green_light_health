@@ -284,6 +284,26 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.Contains("green", stoplightElement.GetAttribute("class"));
         }
 
+        [Fact]
+        public void DemoUserAbleToNavigateWorkflowToDeclineHealthDeclaration()
+        {
+            // Arrange:
+            Actions action = new Actions(_driver);
+            SubmitRegistrationForm(name: null, DEMO_USER_DELAY_MILLISECONDS);
+            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
+
+            // Act:
+            MoveToElementById(homeViewModel.DeclineId, DEMO_USER_DELAY_MILLISECONDS);
+            MoveToElementById(homeViewModel.AcceptId, DEMO_USER_DELAY_MILLISECONDS);
+            MoveToElementById(homeViewModel.DeclineId, DEMO_USER_DELAY_MILLISECONDS);
+            ClickWithWaitTimer(FindElementByIdWithWaitTimer(homeViewModel.DeclineId), DEMO_USER_DELAY_MILLISECONDS);
+
+            // Assert:
+            Thread.Sleep(10 * DEMO_USER_DELAY_MILLISECONDS);
+            Assert.NotNull(stoplightElement);
+            Assert.Contains("red", stoplightElement.GetAttribute("class"));
+        }
+
         private void MoveToElementById(string elementId, int userDelayMilliseconds = 0)
         {
             IWebElement element = FindElementByIdWithWaitTimer(elementId);
