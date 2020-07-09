@@ -22,11 +22,11 @@
 </div>
 
 <div id="@Model.DefinitionsContainerId" class="container-fluid bg-3 text-center w3-animate-left">
-    <h2 class="margin">Are you safe?</h2><br>
+    <h2 class="margin" style="color:#f0f0f0">Are you safe?</h2><br>
     <div class="row">
         <div class="col-sm-4">
-            <h4 style="color:pink"><i class="fa fa-frown-o" aria-hidden="true"></i> Red Light</h4>
-            <p>@Model.GreenLightDefinition</p>
+            <h4 id="@Model.RedLightDefinitionId" style="color:pink"><i class="fa fa-frown-o" aria-hidden="true"></i> Red Light</h4>
+            <p>@Model.RedLightDefinition</p>
         </div>
         <div class="col-sm-4">
             <h4 id="@Model.YellowLightDefinitionId" style="color:lightyellow"><i class="far fa-meh" aria-hidden="true"></i> Yellow Light</h4>
@@ -34,7 +34,7 @@
         </div>
         <div class="col-sm-4">
             <h4 id="@Model.GreenLightDefinitionId" style="color:lightgreen"><i class="fa fa-smile-o" aria-hidden="true"></i> Green Light</h4>
-            <p>You have declared that you are free of smptoms and have no positive test results. Additionally, your contact history is clear of others who are now marked red. Please be careful and follow all regulatory guidelines to continue to protect yourself and others from illness.</p>
+            <p>@Model.GreenLightDefinition</p>
         </div>
     </div>
 </div>
