@@ -24,7 +24,10 @@ namespace GreenLightHealth.AutomatedUITests
         public HomeAutomatedUITests()
         {
             homeViewModel = new HomeViewModel();
-            _driver = new ChromeDriver();
+            _driver = new ChromeDriver(new ChromeOptions()
+            {
+                AcceptInsecureCertificates = true
+            });
             javaScriptExecutor = (IJavaScriptExecutor) _driver;
             _driver.Navigate().GoToUrl(SITE);
             javaScriptExecutor.ExecuteScript("localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');");
