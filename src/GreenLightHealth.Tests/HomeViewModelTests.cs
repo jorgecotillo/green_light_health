@@ -103,5 +103,44 @@ namespace GreenLightHealth.Tests
             // Assert:
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void DefinitionsContainerIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "definitions-container";
+
+            // Act:
+            string actual = homeViewModel.DefinitionsContainerId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GreenLightDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "greenlight-definition";
+
+            // Act:
+            string actual = homeViewModel.GreenLightDefinitionId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GreenLightDefinitionDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "You have self-declared that you have symptoms or a positive test result. You could be at risk or put others at risk. Please seek consultation from medical experts to protect yourself and others if you have symptoms or a positive test result.";
+
+            // Act:
+            string actual = homeViewModel.GreenLightDefinition;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
