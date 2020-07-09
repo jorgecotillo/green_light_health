@@ -2,6 +2,7 @@ using GreenLightHealth.Client.Constants;
 using GreenLightHealth.Client.Models;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using System;
 using System.Collections.Generic;
 using System.Threading;
@@ -12,7 +13,8 @@ namespace GreenLightHealth.AutomatedUITests
     public class HomeAutomatedUITests : IDisposable
     {
         private readonly IWebDriver _driver;
-        private const string SITE = "https://localhost:5001/";
+        private readonly Actions actions;
+        private const string SITE = "https://localhost:44386/";
         private readonly HomeViewModel homeViewModel;
         private readonly IJavaScriptExecutor javaScriptExecutor;
         private const string USER_FULL_NAME = "Test User";
@@ -20,15 +22,14 @@ namespace GreenLightHealth.AutomatedUITests
         private const string FIRST_NAME_LAST_NAME_KEY = "firstNameLastName";
         private const int WAIT_TIME_IN_MILLISECONDS = 100;
         private const int MAX_WAIT_TIME_IN_MILLISECONDS = 2000;
+        private const int DEMO_USER_DELAY_MILLISECONDS = 100;
 
         public HomeAutomatedUITests()
         {
             homeViewModel = new HomeViewModel();
-            _driver = new ChromeDriver(new ChromeOptions()
-            {
-                AcceptInsecureCertificates = true
-            });
-            javaScriptExecutor = (IJavaScriptExecutor) _driver;
+            _driver = new ChromeDriver();
+            actions = new Actions(_driver);
+            javaScriptExecutor = (IJavaScriptExecutor)_driver;
             _driver.Navigate().GoToUrl(SITE);
             javaScriptExecutor.ExecuteScript("localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');");
         }
@@ -44,6 +45,40 @@ namespace GreenLightHealth.AutomatedUITests
         {
             Assert.Equal("Green Light Healthy - Health Declaration", _driver.Title);
             Assert.Contains("Green Light? Healthy!", _driver.PageSource);
+        }
+
+        [Fact]
+        public void HomeViewStoplightBecomesGreenAfterAcceptIsClicked()
+        {
+            // Arrange:
+            SubmitRegistrationForm();
+            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
+            IWebElement button = FindElementByIdWithWaitTimer(homeViewModel.AcceptId);
+
+            // Act:
+            ClickWithWaitTimer(button);
+
+            // Assert:
+            Assert.NotNull(stoplightElement);
+            Assert.NotNull(button);
+            Assert.Contains("green", stoplightElement.GetAttribute("class"));
+        }
+
+        [Fact]
+        public void HomeViewStoplightBecomesRedAfterRejectIsClicked()
+        {
+            // Arrange:
+            SubmitRegistrationForm();
+            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
+            IWebElement button = FindElementByIdWithWaitTimer(homeViewModel.DeclineId);
+
+            // Act:
+            ClickWithWaitTimer(button);
+
+            // Assert:
+            Assert.NotNull(stoplightElement);
+            Assert.NotNull(button);
+            Assert.Contains("red", stoplightElement.GetAttribute("class"));
         }
 
         [Fact]
@@ -81,7 +116,7 @@ namespace GreenLightHealth.AutomatedUITests
         public void HomeViewFirstContainerContentIsVisibleWithStoplight()
         {
             // Act:
-            IWebElement containerElement = _driver.FindElement(By.Id("container1"));
+            IWebElement containerElement = FindElementByIdWithWaitTimer("container1");
             IReadOnlyCollection<IWebElement> childElements = containerElement.FindElements(By.XPath(".//*"));
 
             // Assert:
@@ -90,6 +125,21 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.True(containerElement.Enabled);
             Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-1 text-center w3-animate-right");
             Assert.NotNull(childElements);
+        }
+
+        [Fact]
+        public void HomeViewRegistrationFormProvidesErrorFeedbackTextIfNameIsEmpty()
+        {
+            // Arrange:
+            SubmitRegistrationForm(string.Empty);
+
+            // Act:
+            var element = FindElementByIdWithWaitTimer("feedback");
+
+            // Assert:
+            Assert.NotNull(element);
+            Assert.True(element.Displayed);
+            Assert.True(element.Enabled);
         }
 
         [Fact]
@@ -141,50 +191,51 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
-        public void HomeViewThirdContainerExists()
+        public void HomeViewDefinitionsContainerExists()
         {
+            // Arrange: (see class constructor)
+
             // Act:
-            IWebElement containerElement = _driver.FindElement(By.Id("container3"));
+            IWebElement containerElement = AssertWebElementIsVisibleById(homeViewModel.DefinitionsContainerId);
 
             // Assert:
-            Assert.NotNull(containerElement);
-            Assert.True(containerElement.Displayed);
-            Assert.True(containerElement.Enabled);
             Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-3 text-center w3-animate-left");
         }
 
         [Fact]
-        public void HomeViewStoplightBecomesGreenAfterAcceptIsClicked()
+        public void HomeViewDefinitionsContainerContainsGreenLightDefinition()
         {
-            // Arrange:
-            SubmitRegistrationForm();
-            IWebElement stoplightElement = _driver.FindElement(By.Id(homeViewModel.StoplightId));
-            IWebElement button = _driver.FindElement(By.Id(homeViewModel.AcceptId));
+            // Arrange: (see class constructor)
 
             // Act:
-            ClickWithWaitTimer(button);
+            IWebElement element = AssertWebElementIsVisibleById(homeViewModel.GreenLightDefinitionId);
 
             // Assert:
-            Assert.NotNull(stoplightElement);
-            Assert.NotNull(button);
-            Assert.Contains("green", stoplightElement.GetAttribute("class"));
+            Assert.Contains(homeViewModel.GreenLightDefinition, _driver.PageSource);
         }
 
         [Fact]
-        public void HomeViewStoplightBecomesRedAfterRejectIsClicked()
+        public void HomeViewDefinitionsContainerContainsYellowLightDefinition()
         {
-            // Arrange:
-            SubmitRegistrationForm();
-            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
-            IWebElement button = FindElementByIdWithWaitTimer(homeViewModel.DeclineId);
+            // Arrange: (see class constructor)
 
             // Act:
-            ClickWithWaitTimer(button);
+            IWebElement element = AssertWebElementIsVisibleById(homeViewModel.YellowLightDefinitionId);
 
             // Assert:
-            Assert.NotNull(stoplightElement);
-            Assert.NotNull(button);
-            Assert.Contains("red", stoplightElement.GetAttribute("class"));
+            Assert.Contains(homeViewModel.YellowLightDefinition, _driver.PageSource);
+        }
+
+        [Fact]
+        public void HomeViewDefinitionsContainerContainsRedLightDefinition()
+        {
+            // Arrange: (see class constructor)
+
+            // Act:
+            IWebElement element = AssertWebElementIsVisibleById(homeViewModel.RedLightDefinitionId);
+
+            // Assert:
+            Assert.Contains(homeViewModel.RedLightDefinition, _driver.PageSource);
         }
 
         [Fact]
@@ -194,7 +245,7 @@ namespace GreenLightHealth.AutomatedUITests
             SubmitRegistrationForm();
 
             // Act:
-            IWebElement acceptButton = _driver.FindElement(By.Id(homeViewModel.AcceptId));
+            IWebElement acceptButton = FindElementByIdWithWaitTimer(homeViewModel.AcceptId);
 
             // Assert:
             Assert.True(acceptButton.Displayed);
@@ -213,6 +264,57 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.True(acceptButton.Displayed);
         }
 
+        [Fact]
+        public void DemoUserAbleToNavigateWorkflowToAcceptHealthDeclaration()
+        {
+            // Arrange:
+            Actions action = new Actions(_driver);
+            SubmitRegistrationForm(name: null, DEMO_USER_DELAY_MILLISECONDS);
+            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
+
+            // Act:
+            MoveToElementById(homeViewModel.AcceptId, DEMO_USER_DELAY_MILLISECONDS);
+            MoveToElementById(homeViewModel.DeclineId, DEMO_USER_DELAY_MILLISECONDS);
+            MoveToElementById(homeViewModel.AcceptId, DEMO_USER_DELAY_MILLISECONDS);
+            ClickWithWaitTimer(FindElementByIdWithWaitTimer(homeViewModel.AcceptId), DEMO_USER_DELAY_MILLISECONDS);
+
+            // Assert:
+            Thread.Sleep(10 * DEMO_USER_DELAY_MILLISECONDS);
+            Assert.NotNull(stoplightElement);
+            Assert.Contains("green", stoplightElement.GetAttribute("class"));
+        }
+
+        [Fact]
+        public void DemoUserAbleToNavigateWorkflowToDeclineHealthDeclaration()
+        {
+            // Arrange:
+            Actions action = new Actions(_driver);
+            SubmitRegistrationForm(name: null, DEMO_USER_DELAY_MILLISECONDS);
+            IWebElement stoplightElement = FindElementByIdWithWaitTimer(homeViewModel.StoplightId);
+
+            // Act:
+            MoveToElementById(homeViewModel.DeclineId, DEMO_USER_DELAY_MILLISECONDS);
+            MoveToElementById(homeViewModel.AcceptId, DEMO_USER_DELAY_MILLISECONDS);
+            MoveToElementById(homeViewModel.DeclineId, DEMO_USER_DELAY_MILLISECONDS);
+            ClickWithWaitTimer(FindElementByIdWithWaitTimer(homeViewModel.DeclineId), DEMO_USER_DELAY_MILLISECONDS);
+
+            // Assert:
+            Thread.Sleep(10 * DEMO_USER_DELAY_MILLISECONDS);
+            Assert.NotNull(stoplightElement);
+            Assert.Contains("red", stoplightElement.GetAttribute("class"));
+        }
+
+        private void MoveToElementById(string elementId, int userDelayMilliseconds = 0)
+        {
+            IWebElement element = FindElementByIdWithWaitTimer(elementId);
+            Thread.Sleep(userDelayMilliseconds);
+            if (element != null)
+            {
+                actions.MoveToElement(element).Build().Perform();
+            }
+            Thread.Sleep(userDelayMilliseconds);
+        }
+
         private IWebElement AssertWebElementIsVisibleById(string elementId)
         {
             IWebElement element = FindElementByIdWithWaitTimer(elementId);
@@ -222,13 +324,23 @@ namespace GreenLightHealth.AutomatedUITests
             return element;
         }
 
-        private void SubmitRegistrationForm()
+        private void SubmitRegistrationForm(string name = null, int userDelayMilliseconds = 0)
         {
             IWebElement nameInputElement = FindElementByIdWithWaitTimer(ViewConstants.NameId);
             IWebElement emailInputElement = FindElementByIdWithWaitTimer(ViewConstants.EmailId);
             IWebElement submitButtonElement = FindElementByIdWithWaitTimer(ViewConstants.BtnAcceptId);
-            nameInputElement.SendKeys(USER_FULL_NAME);
+            Thread.Sleep(userDelayMilliseconds);
+            if (name == null)
+            {
+                nameInputElement.SendKeys(USER_FULL_NAME);
+            }
+            else
+            {
+                nameInputElement.SendKeys(name);
+            }
+            Thread.Sleep(userDelayMilliseconds);
             emailInputElement.SendKeys(USER_EMAIL);
+            Thread.Sleep(userDelayMilliseconds);
             ClickWithWaitTimer(submitButtonElement);
         }
 
@@ -254,8 +366,9 @@ namespace GreenLightHealth.AutomatedUITests
             Thread.Sleep(5 * WAIT_TIME_IN_MILLISECONDS);
         }
 
-        private void ClickWithWaitTimer(IWebElement element)
+        private void ClickWithWaitTimer(IWebElement element, int userDelayMilliseconds = 0)
         {
+            Thread.Sleep(userDelayMilliseconds);
             element.Click();
             Thread.Sleep(5 * WAIT_TIME_IN_MILLISECONDS);
         }
