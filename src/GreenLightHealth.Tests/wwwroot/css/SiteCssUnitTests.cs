@@ -179,20 +179,104 @@ namespace GreenLightHealth.Tests.wwwroot.css
             Assert.IsTrue(SiteCss.Contains(expectedStyling));
         }
 
-    [TestMethod]
-        public void StoplightImageClassStylingIsCorrect()
+        [TestMethod]
+        public void StoplightCircleClassAfterStylingIsCorrect()
         {
             // Arrange:
             string expectedStyling =
             String.Join(
             Environment.NewLine,
-            "#stoplight img {",
-            "    position: relative;",
-            "    top: 25%;",
+            ".stoplight-circle::after {",
+            "    border-right: 4px solid rgba(255, 255, 255, 0.6);",
+            "    border-radius: 100%;",
+            "    position: absolute;",
+            "    content: ' ';",
+            "    top: 15%;",
+            "    left: 15%;",
+            "    width: 75%;",
+            "    height: 70%;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void StoplightContainerClassStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".stoplight-container {",
+            "    background-color: #8f8f8f;",
+            "    border: 0.25em solid #aaaaaa;",
+            "    border-radius: 75px;",
+            "    display: flex;",
+            "    flex-direction: column;",
+            "    align-items: center;",
+            "    justify-content: space-around;",
+            "    padding: 15px 0;",
+            "    height: 100%;",
+            "    width: 35%;",
             "    margin-left: auto;",
             "    margin-right: auto;",
-            "    width: 50%;",
-            "    height: 50%;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void StoplightCircleRedClassStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".stoplight-circle.red {",
+            "    background-color: #e0746d;",
+            "    box-shadow: 0 0 20px 5px #e0746d;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void StoplightCircleYellowClassStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".stoplight-circle.yellow {",
+            "    background-color: #f5edab;",
+            "    box-shadow: 0 0 20px 5px #f5edab;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void StoplightCircleGreenClassStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".stoplight-circle.green {",
+            "    background-color: #6ed182;",
+            "    box-shadow: 0 0 20px 5px #6ed182;",
             "}");
 
             // Act: (see class constructor)
@@ -231,6 +315,106 @@ namespace GreenLightHealth.Tests.wwwroot.css
             "    font-size: 1em;",
             "    font-weight: bold;",
             "    color: #ffffff;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void StoplightCircleIsStyledCorrectly()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".stoplight-circle {",
+            "    background-color: rgba(64, 64, 64, 0.3);",
+            "    border-radius: 100%;",
+            "    position: relative;",
+            "    height: 80px;",
+            "    width: 80px;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void InputStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            "input[type=text], input[type=email] {",
+            "    font-weight: bold;",
+            "    font-size: 1em;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void ModalHeaderStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".modal-header {",
+            "    font-weight: bold;",
+            "    font-size: 1.5em;",
+            "    color: #6ed182;",
+            "    margin-bottom: 0em;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void ModalBodyStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            ".modal-body {",
+            "    margin-top: 1em;",
+            "    margin-bottom: 1em;",
+            "    font-size: 1em;",
+            "    color: #646464;",
+            "}");
+
+            // Act: (see class constructor)
+
+            // Assert:
+            Assert.IsTrue(SiteCss.Contains(expectedStyling));
+        }
+
+        [TestMethod]
+        public void ButtonStylingIsCorrect()
+        {
+            // Arrange:
+            string expectedStyling =
+            String.Join(
+            Environment.NewLine,
+            "button {",
+            "    margin-left: 1em;",
+            "    margin-right: 1em;",
+            "    border: 0.1em solid #878787;",
+            "    transition: all .2s ease-in-out;",
+            "    padding: 1em;",
             "}");
 
             // Act: (see class constructor)

@@ -1,6 +1,29 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
+.qr-code-img {
+    background: #fafafa;
+    border: 0.25em solid #d19c6f;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 256px;
+    max-width: 256px;
+    width: 50%;
+    height: 50%;
+}
+
+/* Stoplight Styling */
+.stoplight {
+    height: 400px;
+    width: 400px;
+    background-color: #aaaaaa;
+    border-radius: 50%;
+    border: 0.25em solid #d19c6f;
+    padding: 0.25em;
+    margin-bottom: 2em;
+}
+
 .stoplight-circle {
     background-color: rgba(64, 64, 64, 0.3);
     border-radius: 100%;
@@ -12,8 +35,8 @@ for details on configuring this project to bundle and minify static web assets. 
 .stoplight-circle::after {
     border-right: 4px solid rgba(255, 255, 255, 0.6);
     border-radius: 100%;
-    content: ' ';
     position: absolute;
+    content: ' ';
     top: 15%;
     left: 15%;
     width: 75%;
@@ -48,38 +71,6 @@ for details on configuring this project to bundle and minify static web assets. 
 .stoplight-circle.green {
     background-color: #6ed182;
     box-shadow: 0 0 20px 5px #6ed182;
-}
-
-.qr-code-img {
-    background: #fafafa;
-    border: 0.25em solid #d19c6f;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 256px;
-    max-width: 256px;
-    width: 50%;
-    height: 50%;
-}
-
-/* Stoplight Styling */
-.stoplight {
-    height: 400px;
-    width: 400px;
-    background-color: #aaaaaa;
-    border-radius: 50%;
-    border: 0.25em solid #d19c6f;
-    padding: 0.25em;
-    margin-bottom: 2em;
-}
-
-#stoplight img {
-    position: relative;
-    top: 25%;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    height: 50%;
 }
 
 .green {
@@ -122,7 +113,6 @@ h2 {
 h4 {
     font-size: 1.5em;
 }
-
 
 h3 {
     font-size: 2em;
