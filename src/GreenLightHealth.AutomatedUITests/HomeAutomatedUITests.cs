@@ -177,6 +177,30 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
+        public void HomeViewDefinitionsContainerContainsYellowLightDefinition()
+        {
+            // Arrange: (see class constructor)
+
+            // Act:
+            IWebElement element = AssertWebElementIsVisibleById(homeViewModel.YellowLightDefinitionId);
+
+            // Assert:
+            Assert.Contains(homeViewModel.YellowLightDefinition, _driver.PageSource);
+        }
+
+        [Fact]
+        public void HomeViewDefinitionsContainerContainsRedLightDefinition()
+        {
+            // Arrange: (see class constructor)
+
+            // Act:
+            IWebElement element = AssertWebElementIsVisibleById(homeViewModel.RedLightDefinitionId);
+
+            // Assert:
+            Assert.Contains(homeViewModel.RedLightDefinition, _driver.PageSource);
+        }
+
+        [Fact]
         public void HomeViewStoplightBecomesGreenAfterAcceptIsClicked()
         {
             // Arrange:
