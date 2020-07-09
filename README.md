@@ -133,3 +133,6 @@ The below checklist should be complete to ensure a story is ready.
 
 # Project Part 2/3 Checklist
 Please see the [Wiki page](https://github.com/jorgecotillo/green_light_health/wiki/Project-Part-2-Rubric) for all info pertaining to Part 2.
+
+# Project Part 3/3 Checklist
+Please see the [Wiki page](https://github.com/jorgecotillo/green_light_health/wiki/Project-Part-3-Rubric) for all info pertaining to Part 3.
