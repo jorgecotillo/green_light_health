@@ -40,12 +40,17 @@ $(document).ready(() => {
  $('#modalRegisterFormButton').click(function(e) {
     e.preventDefault();
      var name = $('input#orangeForm-name').val();
-    localStorage.setItem('firstNameLastName',name);
-     $('#registration-form').modal('hide');
-     $('#health-declaration-form').modal({
-        backdrop: 'static'
-    });('show');
-     $('#welcome-text').html(name);
+     if (name == "") {
+        $('#feedback').removeClass("hidden");
+     }
+     else {
+        localStorage.setItem('firstNameLastName',name);
+        $('#registration-form').modal('hide');
+        $('#health-declaration-form').modal({
+           backdrop: 'static'
+        });('show');
+        $('#welcome-text').html(name);
+     }
  });
 
 $('#registration-form').on('hidden.bs.modal', function () {
