@@ -128,7 +128,7 @@ namespace GreenLightHealth.AutomatedUITests
             // Act & Assert:
             AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationModalId);
             IWebElement healthDeclarationHeader = AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationHeaderId);
-            Assert.True(healthDeclarationHeader.Text.Equals(homeViewModel.HealthDeclarationHeader));
+            Assert.Contains(homeViewModel.HealthDeclarationHeader, healthDeclarationHeader.Text);
             IWebElement healthDeclarationParagraph = AssertWebElementIsVisibleById(ViewConstants.HealthDeclarationParagraphId);
             Assert.True(healthDeclarationParagraph.Text.Equals(homeViewModel.HealthDeclarationParagraph));
             IWebElement acceptButton = AssertWebElementIsVisibleById(ViewConstants.AcceptId);
