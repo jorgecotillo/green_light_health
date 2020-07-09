@@ -142,5 +142,31 @@ namespace GreenLightHealth.Tests
             // Assert:
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void YellowLightDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "yellow-definition";
+
+            // Act:
+            string actual = homeViewModel.YellowLightDefinitionId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void YellowLightDefinitionDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "You have declared that you are free of smptoms and have no positive test results. However, you may have been exposed through contact to others who are now reporting symptoms of illness. Please seek consultation from medical experts to protect yourself and others.";
+
+            // Act:
+            string actual = homeViewModel.YellowLightDefinition;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
