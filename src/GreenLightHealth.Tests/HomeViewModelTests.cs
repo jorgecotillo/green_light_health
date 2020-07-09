@@ -103,5 +103,96 @@ namespace GreenLightHealth.Tests
             // Assert:
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void DefinitionsContainerIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "definitions-container";
+
+            // Act:
+            string actual = homeViewModel.DefinitionsContainerId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GreenLightDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "greenlight-definition";
+
+            // Act:
+            string actual = homeViewModel.GreenLightDefinitionId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void GreenLightDefinitionDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "You have declared that you are free of symptoms and have no positive test results. Additionally, your contact history is clear of others who are now marked red. Please be careful and follow all regulatory guidelines to continue to protect yourself and others from illness.";
+
+            // Act:
+            string actual = homeViewModel.GreenLightDefinition;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void YellowLightDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "yellowlight-definition";
+
+            // Act:
+            string actual = homeViewModel.YellowLightDefinitionId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void YellowLightDefinitionDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "You have declared that you are free of symptoms and have no positive test results. However, you may have been exposed through contact to others who are now reporting symptoms of illness. Please seek consultation from medical experts to protect yourself and others.";
+
+            // Act:
+            string actual = homeViewModel.YellowLightDefinition;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RedLightDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "redlight-definition";
+
+            // Act:
+            string actual = homeViewModel.RedLightDefinitionId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void RedLightDefinitionDefinitionIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "You have self-declared that you have symptoms or a positive test result. You could be at risk or put others at risk. Please seek consultation from medical experts to protect yourself and others if you have symptoms or a positive test result.";
+
+            // Act:
+            string actual = homeViewModel.RedLightDefinition;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
