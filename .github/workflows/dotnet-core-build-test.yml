@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: dotnet build src/GreenLightHealth.sln --configuration Release --no-restore
       - name: RunApp
-        run: dotnet run --project src/GreenLightHealth.Client/GreenLightHealth.Client.csproj
+        run: dotnet run --project src/GreenLightHealth.Client/GreenLightHealth.Client.csproj &
       - name: Test
         run: dotnet test src/GreenLightHealth.AutomatedUITests/GreenLightHealth.AutomatedUITests.csproj --no-restore --verbosity detailed
       #- name: Publish
