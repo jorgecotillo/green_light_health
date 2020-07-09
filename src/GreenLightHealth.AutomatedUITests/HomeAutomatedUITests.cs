@@ -82,6 +82,56 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
+        public void HomeViewQrCodeNotVisibleBeforeHealthDeclarationIsMade()
+        {
+            // Arrange:
+            SubmitRegistrationForm();
+
+            // Act:
+            IWebElement element = FindElementByIdWithWaitTimer(homeViewModel.QrCodeId);
+
+            // Assert:
+            Assert.NotNull(element);
+            Assert.False(element.Displayed);
+            Assert.True(element.Enabled);
+        }
+
+        [Fact]
+        public void HomeViewNameNotVisibleBeforeHealthDeclarationIsMade()
+        {
+            // Arrange:
+            SubmitRegistrationForm();
+
+            // Act:
+            IWebElement element = FindElementByIdWithWaitTimer(homeViewModel.UserNameId);
+
+            // Assert:
+            Assert.NotNull(element);
+            Assert.False(element.Displayed);
+            Assert.True(element.Enabled);
+        }
+
+        [Fact]
+        public void HomeViewQrCodeVisibleAfterHealthDeclarationIsMade()
+        {
+            // Arrange:
+            AcceptHealthDeclaration();
+
+            // Act & Assert:
+            AssertWebElementIsVisibleById(homeViewModel.QrCodeId);
+        }
+
+        [Fact]
+        public void HomeViewNameVisibleAfterHealthDeclarationIsMade()
+        {
+            // Arrange:
+            AcceptHealthDeclaration();
+
+            // Act & Assert:
+            AssertWebElementIsVisibleById(homeViewModel.UserNameId);
+        }
+
+        [Fact]
         public void HomeViewPresentsLoginRegistrationFormToUnidentifiedUser()
         {
             // Arrange:
@@ -322,6 +372,18 @@ namespace GreenLightHealth.AutomatedUITests
             Assert.True(element.Displayed);
             Assert.True(element.Enabled);
             return element;
+        }
+
+        private void AcceptHealthDeclaration()
+        {
+            SubmitRegistrationForm();
+            ClickWithWaitTimer(FindElementByIdWithWaitTimer(homeViewModel.AcceptId));
+        }
+
+        private void DeclineHealthDeclaration()
+        {
+            SubmitRegistrationForm();
+            ClickWithWaitTimer(FindElementByIdWithWaitTimer(homeViewModel.DeclineId));
         }
 
         private void SubmitRegistrationForm(string name = null, int userDelayMilliseconds = 0)

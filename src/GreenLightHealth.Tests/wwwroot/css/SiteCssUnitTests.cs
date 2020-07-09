@@ -125,6 +125,7 @@ namespace GreenLightHealth.Tests.wwwroot.css
             ".container-fluid {",
             "    padding-top: 70px;",
             "    padding-bottom: 70px;",
+            "    min-width: 325px;",
             "}");
 
             // Act: (see class constructor)
@@ -165,12 +166,12 @@ namespace GreenLightHealth.Tests.wwwroot.css
             Environment.NewLine,
             ".stoplight {",
             "    height: 400px;",
-            "    width: 400px;",
+            "    max-width: 400px;",
             "    background-color: #aaaaaa;",
             "    border-radius: 50%;",
             "    border: 0.25em solid #d19c6f;",
             "    padding: 0.25em;",
-            "    margin-bottom: 2em;",
+            "    margin-bottom: 1em;",
             "}");
 
             // Act: (see class constructor)

@@ -194,5 +194,18 @@ namespace GreenLightHealth.Tests
             // Assert:
             Assert.AreEqual(expected, actual);
         }
+
+        [TestMethod]
+        public void UserNameIdIsCorrect()
+        {
+            // Arrange:
+            const string expected = "welcome-text";
+
+            // Act:
+            string actual = homeViewModel.UserNameId;
+
+            // Assert:
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
