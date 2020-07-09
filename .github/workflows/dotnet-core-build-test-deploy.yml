@@ -30,7 +30,7 @@ jobs:
       - name: Build
         run: dotnet build src/GreenLightHealth.sln --configuration Release --no-restore
       - name: Test
-        run: dotnet test src/GreenLightHealth.AutomatedUITests/GreenLightHealth.AutomatedUITests.csproj --no-restore --verbosity detailed
+        run: dotnet test src/GreenLightHealth.Tests/GreenLightHealth.Tests.csproj --no-restore --verbosity normal
       - name: Publish
         run: dotnet publish src/GreenLightHealth.sln -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
           
