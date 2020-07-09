@@ -90,6 +90,21 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
+        public void HomeViewRegistrationFormProvidesErrorFeedbackTextIfNameIsEmpty()
+        {
+            // Arrange:
+            SubmitRegistrationForm(string.Empty);
+
+            // Act:
+            var element = FindElementByIdWithWaitTimer("feedback");
+
+            // Assert:
+            Assert.NotNull(element);
+            Assert.True(element.Displayed);
+            Assert.True(element.Enabled);
+        }
+
+        [Fact]
         public void HomeViewPresentsHealthDeclarationToNewUser()
         {
             // Arrange:
@@ -219,12 +234,18 @@ namespace GreenLightHealth.AutomatedUITests
             return element;
         }
 
-        private void SubmitRegistrationForm()
+        private void SubmitRegistrationForm(string name = null)
         {
             IWebElement nameInputElement = FindElementByIdWithWaitTimer(ViewConstants.NameId);
             IWebElement emailInputElement = FindElementByIdWithWaitTimer(ViewConstants.EmailId);
             IWebElement submitButtonElement = FindElementByIdWithWaitTimer(ViewConstants.BtnAcceptId);
-            nameInputElement.SendKeys(USER_FULL_NAME);
+            if(name == null)
+            {
+                nameInputElement.SendKeys(USER_FULL_NAME);
+            } else
+            {
+                nameInputElement.SendKeys(name);
+            }
             emailInputElement.SendKeys(USER_EMAIL);
             ClickWithWaitTimer(submitButtonElement);
         }
