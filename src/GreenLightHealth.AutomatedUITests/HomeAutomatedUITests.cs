@@ -12,7 +12,7 @@ namespace GreenLightHealth.AutomatedUITests
     public class HomeAutomatedUITests : IDisposable
     {
         private readonly IWebDriver _driver;
-        private const string SITE = "https://localhost:44386/";
+        private const string SITE = "https://cscis71-green-light-health-pr-test.azurewebsites.net/";
         private readonly HomeViewModel homeViewModel;
         private readonly IJavaScriptExecutor javaScriptExecutor;
         private const string USER_FULL_NAME = "Test User";
