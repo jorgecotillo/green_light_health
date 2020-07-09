@@ -33,6 +33,8 @@ namespace GreenLightHealth.Client.Models
 
         public string DeclineText = "Yes";
 
+        public string UserNameId = "welcome-text";
+
         public string QrCodeId = ViewConstants.QrCodeId;
 
         public string StoplightId = ViewConstants.StoplightId;
