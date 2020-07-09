@@ -15,6 +15,12 @@ namespace GreenLightHealth.Client.Models
 
         public string HealthDeclarationModalId = ViewConstants.HealthDeclarationModalId;
 
+        public string DefinitionsContainerId = "definitions-container";
+
+        public string GreenLightDefinitionId = "greenlight-definition";
+
+        public string GreenLightDefinition = "You have self-declared that you have symptoms or a positive test result. You could be at risk or put others at risk. Please seek consultation from medical experts to protect yourself and others if you have symptoms or a positive test result.";
+
         public string AcceptText = "No";
 
         public string DeclineText = "Yes";

@@ -21,19 +21,19 @@
     <img class="qr-code-img" src="~/qr-code.png" />
 </div>
 
-<div id="container3" class="container-fluid bg-3 text-center w3-animate-left">
+<div id="@Model.DefinitionsContainerId" class="container-fluid bg-3 text-center w3-animate-left">
     <h2 class="margin">Are you safe?</h2><br>
     <div class="row">
         <div class="col-sm-4">
             <h4 style="color:pink"><i class="fa fa-frown-o" aria-hidden="true"></i> Red Light</h4>
-            <p>You have self-declared that you have symptoms or a positive test result. You could be at risk or put others at risk. Please seek consultation from medical experts to protect yourself and others if you have symptoms or a positive test result.</p>
+            <p>@Model.GreenLightDefinition</p>
         </div>
         <div class="col-sm-4">
             <h4 style="color:lightyellow"><i class="far fa-meh" aria-hidden="true"></i> Yellow Light</h4>
             <p>You have declared that you are free of smptoms and have no positive test results. However, you may have been exposed through contact to others who are now reporting symptoms of illness. Please seek consultation from medical experts to protect yourself and others.</p>
         </div>
         <div class="col-sm-4">
-            <h4 style="color:lightgreen"><i class="fa fa-smile-o" aria-hidden="true"></i> Green Light</h4>
+            <h4 id="@Model.GreenLightDefinitionId" style="color:lightgreen"><i class="fa fa-smile-o" aria-hidden="true"></i> Green Light</h4>
             <p>You have declared that you are free of smptoms and have no positive test results. Additionally, your contact history is clear of others who are now marked red. Please be careful and follow all regulatory guidelines to continue to protect yourself and others from illness.</p>
         </div>
     </div>

@@ -25,7 +25,7 @@ namespace GreenLightHealth.AutomatedUITests
         {
             homeViewModel = new HomeViewModel();
             _driver = new ChromeDriver();
-            javaScriptExecutor = (IJavaScriptExecutor) _driver;
+            javaScriptExecutor = (IJavaScriptExecutor)_driver;
             _driver.Navigate().GoToUrl(SITE);
             javaScriptExecutor.ExecuteScript("localStorage.setItem('" + FIRST_NAME_LAST_NAME_KEY + "','');");
         }
@@ -153,16 +153,27 @@ namespace GreenLightHealth.AutomatedUITests
         }
 
         [Fact]
-        public void HomeViewThirdContainerExists()
+        public void HomeViewDefinitionsContainerExists()
         {
+            // Arrange: (see class constructor)
+
             // Act:
-            IWebElement containerElement = _driver.FindElement(By.Id("container3"));
+            IWebElement containerElement = AssertWebElementIsVisibleById(homeViewModel.DefinitionsContainerId);
 
             // Assert:
-            Assert.NotNull(containerElement);
-            Assert.True(containerElement.Displayed);
-            Assert.True(containerElement.Enabled);
             Assert.Contains(containerElement.GetAttribute("class"), "container-fluid bg-3 text-center w3-animate-left");
+        }
+
+        [Fact]
+        public void HomeViewDefinitionsContainerContainsGreenLightDefinition()
+        {
+            // Arrange: (see class constructor)
+
+            // Act:
+            IWebElement element = AssertWebElementIsVisibleById(homeViewModel.GreenLightDefinitionId);
+
+            // Assert:
+            Assert.Contains(homeViewModel.GreenLightDefinition, _driver.PageSource);
         }
 
         [Fact]
@@ -239,10 +250,11 @@ namespace GreenLightHealth.AutomatedUITests
             IWebElement nameInputElement = FindElementByIdWithWaitTimer(ViewConstants.NameId);
             IWebElement emailInputElement = FindElementByIdWithWaitTimer(ViewConstants.EmailId);
             IWebElement submitButtonElement = FindElementByIdWithWaitTimer(ViewConstants.BtnAcceptId);
-            if(name == null)
+            if (name == null)
             {
                 nameInputElement.SendKeys(USER_FULL_NAME);
-            } else
+            }
+            else
             {
                 nameInputElement.SendKeys(name);
             }
